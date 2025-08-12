@@ -5,6 +5,7 @@ import { useAuth } from '../components/AuthContext'
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { Loading } from '../components/Template';
+import Header from '../components/Header';
 
 export default function ArticleDetail() {
     const { id } = useParams()
@@ -64,6 +65,8 @@ export default function ArticleDetail() {
 
     return (
         <>
+            <Header />
+
             <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gray-900">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center" data-aos="fade-up">

@@ -14,7 +14,6 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="min-h-screen flex flex-col bg-gray-900 overflow-x-hidden">
-          <Header />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
