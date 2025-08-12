@@ -48,12 +48,6 @@ export const HeroSection = () => {
                         </p>
                         <div className="flex space-x-3">
                             <Link
-                                to={"/contact"}
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md transition-all text-sm md:text-base"
-                            >
-                                Hubungi Saya
-                            </Link>
-                            <Link
                                 to={"/about"}
                                 className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-5 py-2 rounded-lg transition-all text-sm md:text-base"
                             >
@@ -477,6 +471,7 @@ export const OfficeSection = () => {
         </section>
     )
 }
+
 export const ContactSection = () => {
     return (
         <section id="contact" className="py-16 bg-white">
@@ -566,8 +561,74 @@ export const OfficeGallery = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
                         data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Ruangan Resepsi Kantor Notaris"
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754987923/WhatsApp_Image_2025-08-12_at_3.37.36_PM_f2eiya.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988012/WhatsApp_Image_2025-08-12_at_3.37.36_PM_1_jvxhxo.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988058/WhatsApp_Image_2025-08-12_at_3.37.36_PM_2_m6picl.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988058/WhatsApp_Image_2025-08-12_at_3.37.36_PM_2_m6picl.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988140/WhatsApp_Image_2025-08-12_at_3.37.37_PM_1_ngub26.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988167/WhatsApp_Image_2025-08-12_at_3.37.37_PM_2_etnccw.jpg"
+                            alt="Gallery"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988201/WhatsApp_Image_2025-08-12_at_3.37.38_PM_ddtgyh.jpg"
+                            alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
                             <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>

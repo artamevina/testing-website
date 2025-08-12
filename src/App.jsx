@@ -7,7 +7,6 @@ import Articles from './pages/Articles'
 import ArticleDetail from './pages/ArticleDetail'
 import EditArticleForm from './components/EditArticleForm'
 import { AuthProvider } from './components/AuthContext'
-import { Contact } from './pages/Contact'
 import { WhattsappButton } from './components/SectionUi'
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/articles" element={<Articles />} />
               <Route path="/articles/:id" element={<ArticleDetail />} />
               <Route path="/articles/edit/:id" element={<EditArticleForm />} />
