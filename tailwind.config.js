@@ -7,21 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          light: '#E6F0FF',
-          DEFAULT: '#4A90E2',
-          dark: '#2C5282',
+        gold: {
+          100: '#faf3e0',
+          500: '#d4af37',
+          600: '#c9a227',
         },
-        secondary: {
-          light: '#F0FFF4',
-          DEFAULT: '#48BB78',
-          dark: '#2F855A',
-        },
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
-    },
+      }
+    }
   },
   plugins: [],
 }

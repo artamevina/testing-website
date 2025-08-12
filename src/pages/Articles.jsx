@@ -38,23 +38,24 @@ export default function Articles() {
     }
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-8">
-            <section className="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div className="max-w-6xl mx-auto px-4 py-8 bg-gray-900">
+            <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gray-900">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <SectionHeader 
-                        title={"Artikel Hukum & Notaris"}
-                        description={"Kumpulan artikel informatif tentang hukum, notaris, dan PPAT untuk membantu Anda memahami berbagai aspek legal."}
+                    <SectionHeader
+                        title={"Artikel Hukum & Notaris Cirebon"}
+                        description={"Kumpulan artikel informatif tentang hukum, notaris, dan PPAT untuk membantu Anda memahami berbagai aspek legal di wilayah Cirebon."}
+                        darkMode={true}
                     />
                 </div>
             </section>
 
             <div className="flex justify-between items-center mb-6 md:mb-8">
-                <h1 className="text-xl md:text-3xl font-bold text-primary-dark" data-aos="fade-up">
-                    Artikel Notaris
+                <h1 className="text-xl md:text-3xl font-bold text-white" data-aos="fade-up">
+                    Artikel Notaris & PPAT Cirebon
                 </h1>
                 <button
                     onClick={() => setShowForm(!showForm)}
-                    className="flex items-center justify-center gap-2 p-2 md:px-4 md:py-2 bg-primary-dark text-white rounded-full md:rounded-lg hover:bg-primary-light hover:text-primary-dark transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="flex items-center justify-center gap-2 p-2 md:px-4 md:py-2 bg-gold-500 text-gray-900 rounded-full md:rounded-lg hover:bg-gold-600 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
                     data-aos="fade-up"
                     aria-label={showForm ? 'Batal tambah artikel' : 'Tambah artikel'}
                 >
@@ -78,7 +79,7 @@ export default function Articles() {
 
             {showForm && (
                 <div className="mb-8 md:mb-12" data-aos="fade-up">
-                    <ArticleForm onArticleAdded={handleAddArticle} />
+                    <ArticleForm onArticleAdded={handleAddArticle} darkMode={true} />
                 </div>
             )}
 
@@ -86,12 +87,12 @@ export default function Articles() {
                 <Loading />
             ) : articles.length === 0 ? (
                 <div className="text-center py-12">
-                    <p className="text-gray-600">Belum ada artikel yang tersedia.</p>
+                    <p className="text-gray-400">Belum ada artikel yang tersedia.</p>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {articles.map((article) => (
-                        <ArticleCard key={article.id} article={article} />
+                        <ArticleCard key={article.id} article={article} darkMode={true} />
                     ))}
                 </div>
             )}

@@ -27,6 +27,9 @@ export default function ArticleForm({ onArticleAdded }) {
             ['link', 'image'],
             ['clean']
         ],
+        clipboard: {
+            matchVisual: false,
+        }
     }
 
     const formats = [
@@ -38,7 +41,6 @@ export default function ArticleForm({ onArticleAdded }) {
         'align',
         'link', 'image'
     ];
-
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -53,12 +55,11 @@ export default function ArticleForm({ onArticleAdded }) {
     const handleImageChange = (e) => {
         const file = e.target.files[0]
         if (file) {
-            // Validate file type and size
             if (!file.type.match('image.*')) {
                 setError('File harus berupa gambar')
                 return
             }
-            if (file.size > 5 * 1024 * 1024) { // 5MB limit
+            if (file.size > 5 * 1024 * 1024) {
                 setError('Ukuran gambar maksimal 5MB')
                 return
             }
@@ -66,7 +67,6 @@ export default function ArticleForm({ onArticleAdded }) {
             setFormData(prev => ({ ...prev, gambar: file }))
             setError(null)
 
-            // Create preview
             const reader = new FileReader()
             reader.onloadend = () => {
                 setPreviewImage(reader.result)
@@ -77,7 +77,6 @@ export default function ArticleForm({ onArticleAdded }) {
 
     const getCurrentIndonesiaTime = () => {
         const now = new Date()
-        // Convert to Indonesia time (UTC+7)
         const offset = 7 * 60 * 60 * 1000
         const indonesiaTime = new Date(now.getTime() + offset)
 
@@ -165,59 +164,59 @@ export default function ArticleForm({ onArticleAdded }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Tambah Artikel Baru</h2>
+        <form onSubmit={handleSubmit} className="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700">
+            <h2 className="text-2xl font-bold mb-6 text-white">Tambah Artikel Baru</h2>
 
             {error && (
-                <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
+                <div className="mb-4 p-4 bg-red-900 text-red-100 rounded-md">
                     {error}
                 </div>
             )}
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2 font-medium" htmlFor="judul">Judul Artikel</label>
+                <label className="block text-gray-300 mb-2 font-medium" htmlFor="judul">Judul Artikel</label>
                 <input
                     type="text"
                     id="judul"
                     name="judul"
                     value={formData.judul}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                     required
-                    placeholder="Masukkan judul artikel"
+                    placeholder="Masukkan judul artikel (Contoh: Jasa Notaris Cirebon Terbaik)"
                 />
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2 font-medium" htmlFor="penulis">Nama Penulis</label>
+                <label className="block text-gray-300 mb-2 font-medium" htmlFor="penulis">Nama Penulis</label>
                 <input
                     type="text"
                     id="penulis"
                     name="penulis"
                     value={formData.penulis}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Masukkan nama penulis"
+                    className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                    placeholder="DR. Jaenudin Umar, SE, SH. M.Kn - Notaris Cirebon"
                 />
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2 font-medium" htmlFor="deskripsi">Deskripsi Singkat</label>
+                <label className="block text-gray-300 mb-2 font-medium" htmlFor="deskripsi">Deskripsi Singkat</label>
                 <textarea
                     id="deskripsi"
                     name="deskripsi"
                     value={formData.deskripsi}
                     onChange={handleChange}
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                     required
                     placeholder="Masukkan deskripsi singkat artikel"
                 />
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2 font-medium">Isi Artikel</label>
-                <div className="border border-gray-300 rounded-md overflow-hidden">
+                <label className="block text-gray-300 mb-2 font-medium">Isi Artikel</label>
+                <div className="sticky top-0 z-10 bg-gray-800 text-white">
                     <ReactQuill
                         theme="snow"
                         value={formData.isi}
@@ -225,14 +224,22 @@ export default function ArticleForm({ onArticleAdded }) {
                         modules={modules}
                         formats={formats}
                         placeholder="Tulis isi artikel di sini..."
-                        className="h-64"
+                        className="h-90 text-white [&_.ql-editor]:min-h-[200px] [&_.ql-editor]:text-gray-200 [&_.ql-editor]:font-sans [&_.ql-editor]:leading-relaxed"
+                        style={{
+                            '--ql-editor-background': '#1f2937',
+                            '--ql-toolbar-background': '#111827',
+                            '--ql-border-color': '#374151',
+                            '--ql-tooltip-color': '#e5e7eb',
+                            '--ql-tooltip-background': '#1f2937',
+                            '--ql-tooltip-border': '#374151'
+                        }}
                     />
                 </div>
             </div>
 
-            <div className="mb-6">
-                <label className="block text-gray-700 mb-2 font-medium" htmlFor="gambar">
-                    Gambar Artikel <span className="text-gray-500 font-normal">(Opsional)</span>
+            <div className="mb-4">
+                <label className="block text-gray-300 mb-2 font-medium" htmlFor="gambar">
+                    Gambar Artikel
                 </label>
                 <div className="flex items-center gap-4">
                     <div className="flex-1">
@@ -248,6 +255,7 @@ export default function ArticleForm({ onArticleAdded }) {
                                 file:text-sm file:font-semibold
                                 file:bg-blue-50 file:text-blue-700
                                 hover:file:bg-blue-100"
+                            required
                         />
                     </div>
                     {previewImage && (
@@ -269,7 +277,7 @@ export default function ArticleForm({ onArticleAdded }) {
                 <button
                     type="submit"
                     disabled={isUploading}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="px-6 py-2 bg-yellow-600 text-gray-900 rounded-md hover:bg-yellow-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-bold"
                 >
                     {isUploading ? (
                         <>

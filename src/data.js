@@ -169,7 +169,7 @@ export const aboutData = {
         description: "Profil profesional dan pengalaman kerja sebagai Notaris dan PPAT."
     },
     profile: {
-        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754906105/profile_2_lfm8lv.png",
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754990795/WhatsApp_Image_2025-08-12_at_4.25.52_PM_xehlet.jpg",
         altText: "Photo Profile",
         title: "Tentang Saya",
         description: "Saya adalah seorang Notaris dan PPAT yang telah berpengalaman lebih dari 17 tahun dalam memberikan pelayanan hukum kepada masyarakat. Dengan latar belakang pendidikan hukum yang kuat dan berbagai sertifikasi profesional, saya berkomitmen untuk memberikan pelayanan terbaik dengan integritas tinggi."
@@ -240,20 +240,17 @@ export const educationData = {
         title: "Pendidikan Formal",
         items: [
             {
-                degree: "Sarjana Ekonomi",
-                institution: "Universitas Indonesia, 2015",
-                thesis: "Disertasi: \"Peran Notaris dalam Pembangunan Hukum Nasional\"",
+                degree: "Sarjana Ekonomi (SE)",
             },
             {
                 degree: "Magister Kenotariatan (M.Kn.)",
-                institution: "Universitas Indonesia, 2007",
-                thesis: "Tesis: \"Aspek Hukum Pendirian PT dalam Praktek Kenotariatan\"",
             },
             {
-                degree: "Sarjana Hukum (S.H.)",
-                institution: "Universitas Indonesia, 2001",
-                thesis: "Skripsi: \"Perlindungan Hukum bagi Konsumen dalam Transaksi Properti\"",
-            }
+                degree: "Sarjana Hukum (SH)",
+            },
+            {
+                degree: "Doktor (Ilmu Hukum)",
+            },
         ]
     },
     professionalTraining: {
@@ -327,7 +324,7 @@ export const organizationData = {
     organizations: [
         {
             name: "Ikatan Notaris Indonesia",
-            icon: "fa-landmark",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001581/images_ls5amr.png",
             color: "blue",
             description: "Ketua Ikatan Notaris Indonesia (INI) Pengurus Daerah Kabupaten Cirebon",
             period: "2019 - 2022",
@@ -335,7 +332,7 @@ export const organizationData = {
         },
         {
             name: "Ikatan Notaris Indonesia",
-            icon: "fa-landmark",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001581/images_ls5amr.png",
             color: "blue",
             description: "Ketua Ikatan Notaris Indonesia (INI) Pengurus Daerah Kabupaten Cirebon",
             period: "2022 - 2022",
@@ -343,7 +340,7 @@ export const organizationData = {
         },
         {
             name: "Ikatan Pejabat Pembuatan Akta Tanah (IPPAT)",
-            icon: "fa-file-contract",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001722/images_bcsj5x.png",
             color: "green",
             description: "Ketua Ikatan Pejabat Pembuat Akta Tanah (IPPAT) Pengurus Daerah Kabupaten Cirebon",
             period: "2016 - 2019",
@@ -351,15 +348,23 @@ export const organizationData = {
         },
         {
             name: "Ikatan Pejabat Pembuatan Akta Tanah (IPPAT)",
-            icon: "fa-file-contract",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001722/images_bcsj5x.png",
             color: "green",
             description: "Ketua Ikatan Pejabat Pembuat Akta Tanah (IPPAT) Pengurus Daerah Kabupaten Cirebon",
             period: "2019 - 2022",
             role: "Ketua"
         },
         {
+            name: "Pengawas Daerah Notaris Cirebon",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001939/01JWZ8RR0VRFGJ6B6WZYKD550J_bejeau.png",
+            color: "purple",
+            description: "Majelis Pengawas Daerah Notaris Kabupaten Cirebon",
+            period: "2010 - Sekarang",
+            role: "Anggota"
+        },
+        {
             name: "Ikatan Sarjana Ekonomi Indonesia",
-            icon: "fa-chart-line",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001822/logo-ISEI-big_jxwmoa.png",
             color: "purple",
             description: "Pengurus Ikatan Sarjana Ekonomi Indonesia Cabang Cirebon",
             period: "2010 - Sekarang",
@@ -367,11 +372,11 @@ export const organizationData = {
         },
         {
             name: "Notaris Muslim Indonesia",
-            icon: "fa-mosque",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001880/images_zfpvpj.png",
             color: "indigo",
-            description: "Pengurus Notaris Muslim Indonesia Korwil Jawa Barat",
+            description: "Wakil Ketua Notaris Muslim Indonesia Korwil Jawa Barat",
             period: "2023 - 2026",
-            role: "Anggota"
+            role: "Wakil Ketua"
         }
     ],
     bankCooperation: {

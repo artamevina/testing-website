@@ -13,7 +13,8 @@ export default function Header() {
         try {
             await signOut()
             navigate('/')
-            setMobileMenuOpen(false) 
+            window.location.reload()
+            setMobileMenuOpen(false)
         } catch (error) {
             console.error('Error logging out:', error)
         }
@@ -33,27 +34,28 @@ export default function Header() {
     }, [mobileMenuOpen])
 
     return (
-        <header className="bg-white shadow-sm fixed w-full z-10">
+        <header className="bg-black shadow-sm fixed w-full z-10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <Link to={"/"} className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
-                            <span className="text-xl font-semibold text-blue-600">
-                                Jaenuddin
+                            <span className="text-xl font-semibold text-white">
+                                Jaenudin
                             </span>
-                            <span className="ml-2 text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Notaris & PPAT</span>
+                            <span className="ml-2 text-sm bg-gray-800 text-gold-500 px-2 py-1 rounded border border-gold-500">
+                                Notaris & PPAT Cirebon
+                            </span>
                         </Link>
                     </div>
                     <div className="hidden md:flex items-center space-x-8">
-                        <Link to="/" className="text-gray-700 hover:text-primary-dark transition">Beranda</Link>
-                        <Link to="/about" className="text-gray-700 hover:text-primary-dark transition">Tentang Saya</Link>
-                        <Link to="/articles" className="text-gray-700 hover:text-primary-dark transition">Artikel</Link>
-
+                        <Link to="/" className="text-gray-300 hover:text-gold-400 transition">Beranda</Link>
+                        <Link to="/about" className="text-gray-300 hover:text-gold-400 transition">Tentang Saya</Link>
+                        <Link to="/articles" className="text-gray-300 hover:text-gold-400 transition">Artikel</Link>
                         {user ? (
                             <div className="flex items-center space-x-4">
                                 <button
                                     onClick={handleLogout}
-                                    className="text-gray-700 hover:text-primary-dark transition"
+                                    className="text-gray-300 hover:text-gold-400 transition"
                                 >
                                     Logout
                                 </button>
@@ -61,7 +63,7 @@ export default function Header() {
                         ) : (
                             <button
                                 onClick={() => setLoginModalOpen(true)}
-                                className="text-gray-700 hover:text-primary-dark transition"
+                                className="text-gray-300 hover:text-gold-400 transition"
                             >
                                 Login
                             </button>
@@ -72,7 +74,7 @@ export default function Header() {
                             className="mobile-menu-button p-2 focus:outline-none"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         >
-                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
@@ -80,29 +82,28 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`mobile-menu md:hidden bg-white shadow-lg transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'block' : 'hidden'}`}>
+            <div className={`mobile-menu md:hidden bg-gray-900 shadow-lg transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'block' : 'hidden'}`}>
                 <Link
                     to="/"
-                    className="block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
+                    className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     Beranda
                 </Link>
                 <Link
                     to="/about"
-                    className="block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
+                    className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     Tentang Saya
                 </Link>
                 <Link
                     to="/articles"
-                    className="block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
+                    className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     Artikel
                 </Link>
-
                 {user ? (
                     <>
                         <button
@@ -110,7 +111,7 @@ export default function Header() {
                                 handleLogout()
                                 setMobileMenuOpen(false)
                             }}
-                            className="w-full text-left block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
+                            className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                         >
                             Logout
                         </button>
@@ -121,7 +122,7 @@ export default function Header() {
                             setLoginModalOpen(true)
                             setMobileMenuOpen(false)
                         }}
-                        className="w-full text-left block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
+                        className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     >
                         Login
                     </button>

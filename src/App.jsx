@@ -13,9 +13,9 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen flex flex-col bg-blue-50 overflow-x-hidden">
+        <div className="min-h-screen flex flex-col bg-gray-900 overflow-x-hidden">
           <Header />
-          <main className="flex-grow container mx-auto px-4 py-8">
+          <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
