@@ -193,6 +193,7 @@ export default function EditArticleForm() {
             <SectionHeader
                 title="Edit Artikel"
                 description="Perbarui artikel untuk ditampilkan di website"
+                darkMode={true}
             />
 
             <form onSubmit={handleSubmit} className="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700 max-w-4xl mx-auto">
