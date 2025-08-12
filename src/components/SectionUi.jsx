@@ -525,7 +525,7 @@ export const WhattsappButton = () => {
         message += `\n\nSaya dapat dihubungi di nomor ini: ${phone}. Terima kasih.`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = '6282313931717';
+        const whatsappNumber = '6281222267776';
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         const url = isMobile
             ? `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
@@ -587,7 +587,7 @@ export const WhattsappButton = () => {
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-300 mb-2" htmlFor="visit-time">
-                                    Waktu Kunjungan (08:00 - 16:00)
+                                    Waktu Kunjungan (08:00 - 17:00)
                                 </label>
                                 <input
                                     type="time"
