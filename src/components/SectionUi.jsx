@@ -565,8 +565,12 @@ export const OfficeGallery = () => {
                             alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                            <h3 className="font-semibold text-gray-800">
+                                Tampak Depan Kantor
+                            </h3>
+                            <p className="text-sm text-gray-600">
+                                Fasad bangunan yang mudah dikenali dan strategis.
+                            </p>
                         </div>
                     </div>
 
@@ -576,30 +580,12 @@ export const OfficeGallery = () => {
                             alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988058/WhatsApp_Image_2025-08-12_at_3.37.36_PM_2_m6picl.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988058/WhatsApp_Image_2025-08-12_at_3.37.36_PM_2_m6picl.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                            <h3 className="font-semibold text-gray-800">
+                                Papan Nama Kantor 
+                            </h3>
+                            <p className="text-sm text-gray-600">
+                                Informasi lengkap mengenai Alamat Kantor dan Kontak
+                            </p>
                         </div>
                     </div>
 
@@ -609,8 +595,12 @@ export const OfficeGallery = () => {
                             alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                            <h3 className="font-semibold text-gray-800">
+                                Ruang Resepsi
+                            </h3>
+                            <p className="text-sm text-gray-600">
+                                Desain elegan dengan kursi kulit yang nyaman.
+                            </p>
                         </div>
                     </div>
 
@@ -620,8 +610,12 @@ export const OfficeGallery = () => {
                             alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                            <h3 className="font-semibold text-gray-800">
+                                Ruang Kerja Notaris 
+                            </h3>
+                            <p className="text-sm text-gray-600">
+                                Area kerja resmi yang tertata rapi dan profesional.
+                            </p>
                         </div>
                     </div>
 
@@ -631,8 +625,12 @@ export const OfficeGallery = () => {
                             alt="Gallery"
                             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                         <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
-                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                            <h3 className="font-semibold text-gray-800">
+                                Ruang Rapat
+                            </h3>
+                            <p className="text-sm text-gray-600">
+                                Tempat diskusi dan pertemuan klien dengan suasana kondusif.
+                            </p>
                         </div>
                     </div>
                 </div>
