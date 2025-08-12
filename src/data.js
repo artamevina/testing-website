@@ -172,7 +172,7 @@ export const aboutData = {
         imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754906105/profile_2_lfm8lv.png",
         altText: "Photo Profile",
         title: "Tentang Saya",
-        description: "Saya adalah seorang Notaris dan PPAT yang telah berpengalaman lebih dari 15 tahun dalam memberikan pelayanan hukum kepada masyarakat. Dengan latar belakang pendidikan hukum yang kuat dan berbagai sertifikasi profesional, saya berkomitmen untuk memberikan pelayanan terbaik dengan integritas tinggi."
+        description: "Saya adalah seorang Notaris dan PPAT yang telah berpengalaman lebih dari 17 tahun dalam memberikan pelayanan hukum kepada masyarakat. Dengan latar belakang pendidikan hukum yang kuat dan berbagai sertifikasi profesional, saya berkomitmen untuk memberikan pelayanan terbaik dengan integritas tinggi."
     },
     skills: [
         {
@@ -448,3 +448,36 @@ export const sectionDataVision = {
         color: "green"
     }
 };
+
+export const galleryItems = [
+    {
+        id: 1,
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754987923/WhatsApp_Image_2025-08-12_at_3.37.36_PM_f2eiya.jpg",
+        title: "Tampak Depan Kantor",
+        description: "Fasad bangunan yang mudah dikenali dan strategis."
+    },
+    {
+        id: 2,
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754988012/WhatsApp_Image_2025-08-12_at_3.37.36_PM_1_jvxhxo.jpg",
+        title: "Papan Nama Kantor",
+        description: "Informasi lengkap mengenai Alamat Kantor dan Kontak"
+    },
+    {
+        id: 3,
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754988140/WhatsApp_Image_2025-08-12_at_3.37.37_PM_1_ngub26.jpg",
+        title: "Ruang Resepsi",
+        description: "Desain elegan dengan kursi kulit yang nyaman."
+    },
+    {
+        id: 4,
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754988167/WhatsApp_Image_2025-08-12_at_3.37.37_PM_2_etnccw.jpg",
+        title: "Ruang Kerja Notaris",
+        description: "Area kerja resmi yang tertata rapi dan profesional."
+    },
+    {
+        id: 5,
+        imageUrl: "https://res.cloudinary.com/du4wegspv/image/upload/v1754988201/WhatsApp_Image_2025-08-12_at_3.37.38_PM_ddtgyh.jpg",
+        title: "Ruang Rapat",
+        description: "Tempat diskusi dan pertemuan klien dengan suasana kondusif."
+    }
+];

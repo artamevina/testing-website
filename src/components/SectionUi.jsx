@@ -7,6 +7,7 @@ import {
     educationData, 
     organizationData,
     sectionDataVision,
+    galleryItems,
 } 
 from "../data";
 import { 
@@ -24,10 +25,10 @@ import {
     BankCooperation,
     VisionCard,
     MissionCard,
-    ModalWhatssapp,
+    GalleryCard,
 } 
 from "./Template";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const HeroSection = () => {
     return (
@@ -318,160 +319,6 @@ export const VisionSection = () => {
     );
 };
 
-export const OfficeSection = () => {
-    const showModal = () => {
-        const modal = document.getElementById('schedule-modal');
-        modal.classList.remove('hidden');
-    };
-
-    const hideModal = () => {
-        const modal = document.getElementById('schedule-modal');
-        modal.classList.add('hidden');
-    };
-
-    const handlePurposeChange = (e) => {
-        const otherContainer = document.getElementById('other-purpose-container');
-        if (e.target.value === 'Lainnya') {
-            otherContainer.classList.remove('hidden');
-        } else {
-            otherContainer.classList.add('hidden');
-        }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('visit-name').value;
-        const phone = document.getElementById('visit-phone').value;
-        const date = document.getElementById('visit-date').value;
-        const time = document.getElementById('visit-time').value;
-        const purpose = document.getElementById('visit-purpose').value;
-        const otherPurpose = document.getElementById('other-purpose').value;
-
-        const formattedDate = new Date(date).toLocaleDateString('id-ID', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-
-        let message = `Halo, saya ${name} ingin menjadwalkan kunjungan dengan detail sebagai berikut:\n\n`;
-        message += `📅 Tanggal: ${formattedDate}\n`;
-        message += `⏰ Waktu: ${time}\n`;
-        message += `🎯 Tujuan: ${purpose}`;
-
-        if (purpose === 'Lainnya' && otherPurpose) {
-            message += ` - ${otherPurpose}`;
-        }
-
-        message += `\n\nSaya dapat dihubungi di nomor ini: ${phone}. Terima kasih.`;
-
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = '6282313931717';
-
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-        if (isMobile) {
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-        } else {
-            window.open(`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`, '_blank');
-        }
-
-        hideModal();
-    };
-
-    useEffect(() => {
-        const scheduleButton = document.querySelector('a[href="#contact"]');
-        if (scheduleButton) {
-            scheduleButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                showModal();
-            });
-        }
-
-        const cancelButton = document.getElementById('cancel-schedule');
-        if (cancelButton) {
-            cancelButton.addEventListener('click', hideModal);
-        }
-
-        const confirmButton = document.getElementById('confirm-schedule');
-        if (confirmButton) {
-            confirmButton.addEventListener('click', handleSubmit);
-        }
-
-        const purposeSelect = document.getElementById('visit-purpose');
-        if (purposeSelect) {
-            purposeSelect.addEventListener('change', handlePurposeChange);
-        }
-
-        return () => {
-            if (scheduleButton) scheduleButton.removeEventListener('click', showModal);
-            if (cancelButton) cancelButton.removeEventListener('click', hideModal);
-            if (confirmButton) confirmButton.removeEventListener('click', handleSubmit);
-            if (purposeSelect) purposeSelect.removeEventListener('change', handlePurposeChange);
-        };
-    }, []);
-
-    return (
-        <section className="py-12 bg-blue-50 rounded-lg mb-12" data-aos="fade-up">
-            <div className="max-w-3xl mx-auto px-4">
-                <h2 className="text-2xl font-bold text-center text-primary-dark mb-8">Kantor Notaris</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary-dark">Alamat</h3>
-                        <p className="text-gray-700 mb-4">
-                            Jl. Tuparev Ruko CBC D.1 Cirebon <br />
-                            Cirebon, Jawa Barat<br />
-                            12540
-                        </p>
-
-                        <h3 className="text-xl font-semibold mb-4 text-secondary-dark">Kontak</h3>
-                        <p className="text-gray-700 mb-2">
-                            <span className="font-medium">Telepon:</span> 0231-238799
-                        </p>
-                        <p className="text-gray-700 mb-2">
-                            <span className="font-medium">Email:</span> jen_notaris@yahoo.co.id
-                        </p>
-                        <p className="text-gray-700">
-                            <span className="font-medium">WhatsApp:</span> 081222267776
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 className="text-xl font-semibold mb-4 text-secondary-dark">Jam Operasional</h3>
-                        <ul className="space-y-2 text-gray-700">
-                            <li className="flex justify-between">
-                                <span>Senin - Jumat</span>
-                                <span>08:00 - 17:00</span>
-                            </li>
-                            <li className="flex justify-between">
-                                <span>Minggu & Sabtu</span>
-                                <span>Libur</span>
-                            </li>
-                        </ul>
-
-                        <div className="mt-6">
-                            <h3 className="text-xl font-semibold mb-4 text-secondary-dark">Janji Temu</h3>
-                            <p className="text-gray-700 mb-4">
-                                Untuk memastikan pelayanan optimal, disarankan membuat janji temu terlebih dahulu.
-                            </p>
-                            <button
-                                onClick={showModal}
-                                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-all cursor-pointer"
-                            >
-                                <i className="fas fa-calendar-alt mr-2"></i> Buat Janji Temu
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <ModalWhatssapp />
-        </section>
-    )
-}
-
 export const ContactSection = () => {
     return (
         <section id="contact" className="py-16 bg-white">
@@ -551,88 +398,19 @@ export const OfficeGallery = () => {
     return (
         <section className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Galeri Kantor</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Kantor notaris yang nyaman dan profesional untuk melayani
-                        kebutuhan hukum Anda.</p>
-                </div>
-
+                <SectionHeader
+                    title={"Galeri Kantor"}                
+                    description={"Kantor notaris yang nyaman dan profesional untuk melayani kebutuhan hukum Anda."}
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754987923/WhatsApp_Image_2025-08-12_at_3.37.36_PM_f2eiya.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">
-                                Tampak Depan Kantor
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                                Fasad bangunan yang mudah dikenali dan strategis.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988012/WhatsApp_Image_2025-08-12_at_3.37.36_PM_1_jvxhxo.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">
-                                Papan Nama Kantor 
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                                Informasi lengkap mengenai Alamat Kantor dan Kontak
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988140/WhatsApp_Image_2025-08-12_at_3.37.37_PM_1_ngub26.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">
-                                Ruang Resepsi
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                                Desain elegan dengan kursi kulit yang nyaman.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988167/WhatsApp_Image_2025-08-12_at_3.37.37_PM_2_etnccw.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">
-                                Ruang Kerja Notaris 
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                                Area kerja resmi yang tertata rapi dan profesional.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754988201/WhatsApp_Image_2025-08-12_at_3.37.38_PM_ddtgyh.jpg"
-                            alt="Gallery"
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-                        <div className="p-4 bg-white">
-                            <h3 className="font-semibold text-gray-800">
-                                Ruang Rapat
-                            </h3>
-                            <p className="text-sm text-gray-600">
-                                Tempat diskusi dan pertemuan klien dengan suasana kondusif.
-                            </p>
-                        </div>
-                    </div>
+                    {galleryItems.map((item) => (
+                        <GalleryCard
+                            key={item.id}
+                            imageUrl={item.imageUrl}
+                            title={item.title}
+                            description={item.description}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
@@ -643,6 +421,7 @@ export const WhattsappButton = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [purpose, setPurpose] = useState('');
     const [showOtherPurpose, setShowOtherPurpose] = useState(false);
+    const [timeError, setTimeError] = useState('');
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -650,6 +429,7 @@ export const WhattsappButton = () => {
 
     const hideModal = () => {
         setIsModalOpen(false);
+        setTimeError('');
     };
 
     const handlePurposeChange = (e) => {
@@ -658,8 +438,23 @@ export const WhattsappButton = () => {
         setShowOtherPurpose(selectedPurpose === 'Lainnya');
     };
 
+    const validateTime = (time) => {
+        if (!time) return false;
+
+        const [hours, minutes] = time.split(':').map(Number);
+        return hours >= 8 && hours < 16; // 8 AM to 4 PM (16:00 is 4 PM)
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const timeInput = e.target.elements['visit-time'];
+        const timeValue = timeInput.value;
+
+        if (!validateTime(timeValue)) {
+            setTimeError('Waktu kunjungan harus antara jam 08:00 - 16:00');
+            return;
+        }
 
         const form = e.target;
         const formData = new FormData(form);
@@ -752,15 +547,18 @@ export const WhattsappButton = () => {
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 mb-2" htmlFor="visit-time">
-                                    Waktu Kunjungan
+                                    Waktu Kunjungan (08:00 - 16:00)
                                 </label>
                                 <input
                                     type="time"
                                     id="visit-time"
                                     name="visit-time"
                                     className="w-full px-3 py-2 border rounded"
+                                    min="08:00"
+                                    max="16:00"
                                     required
                                 />
+                                {timeError && <p className="text-red-500 text-sm mt-1">{timeError}</p>}
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 mb-2" htmlFor="visit-purpose">

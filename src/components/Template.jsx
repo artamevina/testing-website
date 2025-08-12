@@ -305,104 +305,20 @@ export const Loading = () => {
     )
 }
 
-export const ModalWhatssapp = () => {
-    return (
-        <div id="schedule-modal" className="fixed inset-0 z-50 hidden overflow-y-auto">
-            <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-                    <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-                </div>
-
-                <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-                <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                    role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div className="sm:flex sm:items-start">
-                            <div
-                                className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i className="fas fa-calendar-alt text-blue-600"></i>
-                            </div>
-                            <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                                <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                                    Jadwalkan Kunjungan
-                                </h3>
-                                <div className="mt-4">
-                                    <form id="schedule-form" className="space-y-4">
-                                        <div>
-                                            <label htmlFor="visit-name" className="block text-sm font-medium text-gray-700">Nama
-                                                Lengkap</label>
-                                            <input type="text" id="visit-name" name="visit-name" required
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="visit-phone" className="block text-sm font-medium text-gray-700">Nomor
-                                                WhatsApp</label>
-                                            <input type="tel" id="visit-phone" name="visit-phone" required
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                                                placeholder="081234567890" />
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="visit-date" className="block text-sm font-medium text-gray-700">Tanggal
-                                                Kunjungan</label>
-                                            <input type="date" id="visit-date" name="visit-date" required
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="visit-time" className="block text-sm font-medium text-gray-700">Waktu
-                                                Kunjungan</label>
-                                            <select id="visit-time" name="visit-time" required
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                                                <option value="">Pilih Waktu</option>
-                                                <option value="09:00-10:00">08:00 - 09:00</option>
-                                                <option value="09:00-10:00">09:00 - 10:00</option>
-                                                <option value="10:00-11:00">10:00 - 11:00</option>
-                                                <option value="11:00-12:00">11:00 - 12:00</option>
-                                                <option value="13:00-14:00">13:00 - 14:00</option>
-                                                <option value="14:00-15:00">14:00 - 15:00</option>
-                                                <option value="15:00-16:00">15:00 - 16:00</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label htmlFor="visit-purpose" className="block text-sm font-medium text-gray-700">Tujuan
-                                                Kunjungan</label>
-                                            <select id="visit-purpose" name="visit-purpose" required
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                                                <option value="">Pilih Tujuan</option>
-                                                <option value="Pembuatan Akta">Pembuatan Akta</option>
-                                                <option value="Legalisasi Dokumen">Legalisasi Dokumen</option>
-                                                <option value="Konsultasi Hukum">Konsultasi Hukum</option>
-                                                <option value="Lainnya">Lainnya</option>
-                                            </select>
-                                        </div>
-
-                                        <div id="other-purpose-container" className="hidden">
-                                            <label htmlFor="other-purpose" className="block text-sm font-medium text-gray-700">Jelaskan
-                                                Tujuan Anda</label>
-                                            <input type="text" id="other-purpose" name="other-purpose"
-                                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <button type="button" id="confirm-schedule"
-                            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
-                            <i className="fab fa-whatsapp mr-2"></i> Kirim via WhatsApp
-                        </button>
-                        <button type="button" id="cancel-schedule"
-                            className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                            Batal
-                        </button>
-                    </div>
-                </div>
-            </div>
+export const GalleryCard = ({ imageUrl, title, description }) => (
+    <div
+        className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+        data-aos="fade-up"
+        data-aos-delay="100"
+    >
+        <img
+            src={imageUrl}
+            alt="Gallery"
+            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+        />
+        <div className="p-4 bg-white">
+            <h3 className="font-semibold text-gray-800">{title}</h3>
+            <p className="text-sm text-gray-600">{description}</p>
         </div>
-    )
-}
+    </div>
+);

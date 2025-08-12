@@ -1,4 +1,4 @@
-import { AboutSection, ContactSection, EducationSection, OfficeSection, OrganizationSection, VisionSection } from "../components/SectionUi";
+import { AboutSection, ContactSection, EducationSection, OrganizationSection, VisionSection } from "../components/SectionUi";
 
 export default function About() {
     return (
@@ -7,7 +7,6 @@ export default function About() {
             <EducationSection />
             <OrganizationSection />
             <VisionSection />
-            <OfficeSection />
             <ContactSection />
         </div>
     )
