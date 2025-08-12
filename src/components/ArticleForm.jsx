@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { supabase } from '../services/supabase'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 export default function ArticleForm({ onArticleAdded }) {
     const [formData, setFormData] = useState({
         judul: '',
         deskripsi: '',
         isi: '',
-        gambar: null
+        gambar: null,
+        penulis: ''
     })
     const [isUploading, setIsUploading] = useState(false)
     const [previewImage, setPreviewImage] = useState(null)
@@ -17,29 +18,27 @@ export default function ArticleForm({ onArticleAdded }) {
 
     const modules = {
         toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
             ['bold', 'italic', 'underline', 'strike'],
             ['blockquote', 'code-block'],
-            [{ 'header': 1 }, { 'header': 2 }],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            [{ 'script': 'sub' }, { 'script': 'super' }],
-            [{ 'indent': '-1' }, { 'indent': '+1' }],
-            [{ 'direction': 'rtl' }],
-            [{ 'size': ['small', false, 'large', 'huge'] }],
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
             [{ 'color': [] }, { 'background': [] }],
-            [{ 'font': [] }],
             [{ 'align': [] }],
-            ['clean'],
-            ['link', 'image', 'video']
+            ['link', 'image'],
+            ['clean']
         ],
     }
 
     const formats = [
-        'header', 'font', 'size',
-        'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet', 'indent',
-        'link', 'image', 'video'
-    ]
+        'header',
+        'bold', 'italic', 'underline', 'strike',
+        'blockquote', 'code-block',
+        'list',
+        'color', 'background',
+        'align',
+        'link', 'image'
+    ];
+
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -76,17 +75,28 @@ export default function ArticleForm({ onArticleAdded }) {
         }
     }
 
+    const getCurrentIndonesiaTime = () => {
+        const now = new Date()
+        // Convert to Indonesia time (UTC+7)
+        const offset = 7 * 60 * 60 * 1000
+        const indonesiaTime = new Date(now.getTime() + offset)
+
+        return {
+            date: indonesiaTime.toISOString().split('T')[0],
+            time: indonesiaTime.toISOString().split('T')[1].split('.')[0]
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsUploading(true)
         setError(null)
 
         try {
-            // First upload image to Cloudinary if exists
             let imageUrl = ''
             if (formData.gambar) {
-                const cloudName = 'du4wegspv' // Replace with your Cloudinary cloud name
-                const uploadPreset = 'portofolio-notaris' // Replace with your upload preset
+                const cloudName = 'du4wegspv'
+                const uploadPreset = 'portofolio-notaris'
 
                 const formDataImg = new FormData()
                 formDataImg.append('file', formData.gambar)
@@ -109,24 +119,21 @@ export default function ArticleForm({ onArticleAdded }) {
                 imageUrl = uploadResponse.data.secure_url
             }
 
-            // Prepare article data
-            const now = new Date()
+            const indonesiaTime = getCurrentIndonesiaTime()
             const articleData = {
                 judul: formData.judul,
                 deskripsi: formData.deskripsi,
                 isi: formData.isi,
                 gambar_url: imageUrl || null,
-                tanggal_upload: now.toISOString().split('T')[0],
-                jam_upload: now.toTimeString().split(' ')[0],
-                penulis: 'Violet Evargarde'
+                tanggal_upload: indonesiaTime.date,
+                jam_upload: indonesiaTime.time,
+                penulis: formData.penulis || 'DR. Jaenudin Umar, SE, SH. M.Kn'
             }
 
-            // Validate required fields
             if (!articleData.judul || !articleData.deskripsi || !articleData.isi) {
                 throw new Error('Judul, deskripsi, dan isi artikel harus diisi')
             }
 
-            // Save to Supabase
             const { data, error: supabaseError } = await supabase
                 .from('artikel')
                 .insert([articleData])
@@ -138,16 +145,15 @@ export default function ArticleForm({ onArticleAdded }) {
                 throw new Error('Gagal menyimpan artikel')
             }
 
-            // Reset form
             setFormData({
                 judul: '',
                 deskripsi: '',
                 isi: '',
-                gambar: null
+                gambar: null,
+                penulis: ''
             })
             setPreviewImage(null)
 
-            // Notify parent component
             onArticleAdded(data[0])
 
         } catch (error) {
@@ -160,7 +166,7 @@ export default function ArticleForm({ onArticleAdded }) {
 
     return (
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-primary-dark">Tambah Artikel Baru</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Tambah Artikel Baru</h2>
 
             {error && (
                 <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
@@ -169,67 +175,120 @@ export default function ArticleForm({ onArticleAdded }) {
             )}
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="judul">Judul</label>
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="judul">Judul Artikel</label>
                 <input
                     type="text"
                     id="judul"
                     name="judul"
                     value={formData.judul}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-light"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
+                    placeholder="Masukkan judul artikel"
                 />
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="deskripsi">Deskripsi Singkat</label>
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="penulis">Nama Penulis</label>
+                <input
+                    type="text"
+                    id="penulis"
+                    name="penulis"
+                    value={formData.penulis}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan nama penulis"
+                />
+            </div>
+
+            <div className="mb-4">
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="deskripsi">Deskripsi Singkat</label>
                 <textarea
                     id="deskripsi"
                     name="deskripsi"
                     value={formData.deskripsi}
                     onChange={handleChange}
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-light"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
+                    placeholder="Masukkan deskripsi singkat artikel"
                 />
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="isi">Isi Artikel</label>
-                <ReactQuill
-                    theme="snow"
-                    value={formData.isi}
-                    onChange={handleContentChange}
-                    modules={modules}
-                    formats={formats}
-                    className="h-64 mb-12"
-                />
+                <label className="block text-gray-700 mb-2 font-medium">Isi Artikel</label>
+                <div className="border border-gray-300 rounded-md overflow-hidden">
+                    <ReactQuill
+                        theme="snow"
+                        value={formData.isi}
+                        onChange={handleContentChange}
+                        modules={modules}
+                        formats={formats}
+                        placeholder="Tulis isi artikel di sini..."
+                        className="h-64"
+                    />
+                </div>
             </div>
 
-            <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="gambar">Gambar Artikel (Opsional)</label>
-                <input
-                    type="file"
-                    id="gambar"
-                    name="gambar"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-light"
-                />
-                {previewImage && (
-                    <div className="mt-2">
-                        <img src={previewImage} alt="Preview" className="h-32 object-cover rounded-md" />
+            <div className="mb-6">
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="gambar">
+                    Gambar Artikel <span className="text-gray-500 font-normal">(Opsional)</span>
+                </label>
+                <div className="flex items-center gap-4">
+                    <div className="flex-1">
+                        <input
+                            type="file"
+                            id="gambar"
+                            name="gambar"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="w-full text-sm text-gray-500
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-md file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-blue-50 file:text-blue-700
+                                hover:file:bg-blue-100"
+                        />
                     </div>
-                )}
+                    {previewImage && (
+                        <div className="flex-shrink-0">
+                            <img
+                                src={previewImage}
+                                alt="Preview"
+                                className="h-16 w-16 object-cover rounded-md border border-gray-200"
+                            />
+                        </div>
+                    )}
+                </div>
+                <p className="mt-1 text-sm text-gray-500">
+                    Format: JPG, PNG (Maksimal 5MB)
+                </p>
             </div>
 
-            <button
-                type="submit"
-                disabled={isUploading}
-                className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-light hover:text-primary-dark transition disabled:opacity-50"
-            >
-                {isUploading ? 'Mengunggah...' : 'Simpan Artikel'}
-            </button>
+            <div className="flex justify-end">
+                <button
+                    type="submit"
+                    disabled={isUploading}
+                    className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                    {isUploading ? (
+                        <>
+                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Menyimpan...
+                        </>
+                    ) : (
+                        <>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            Simpan Artikel
+                        </>
+                    )}
+                </button>
+            </div>
         </form>
     )
 }

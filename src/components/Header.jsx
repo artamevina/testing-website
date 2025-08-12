@@ -13,13 +13,12 @@ export default function Header() {
         try {
             await signOut()
             navigate('/')
-            setMobileMenuOpen(false) // Close mobile menu after logout
+            setMobileMenuOpen(false) 
         } catch (error) {
             console.error('Error logging out:', error)
         }
     }
 
-    // Close mobile menu when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (mobileMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.mobile-menu-button')) {
@@ -52,12 +51,6 @@ export default function Header() {
 
                         {user ? (
                             <div className="flex items-center space-x-4">
-                                <Link
-                                    to="/articles/create"
-                                    className="px-3 py-1 bg-primary-dark text-white rounded-md hover:bg-primary-light transition"
-                                >
-                                    Buat Artikel
-                                </Link>
                                 <button
                                     onClick={handleLogout}
                                     className="text-gray-700 hover:text-primary-dark transition"
@@ -87,7 +80,6 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <div className={`mobile-menu md:hidden bg-white shadow-lg transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'block' : 'hidden'}`}>
                 <Link
                     to="/"
@@ -113,13 +105,6 @@ export default function Header() {
 
                 {user ? (
                     <>
-                        <Link
-                            to="/articles/create"
-                            className="block py-3 px-4 text-sm hover:bg-blue-50 text-gray-700"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Buat Artikel
-                        </Link>
                         <button
                             onClick={() => {
                                 handleLogout()

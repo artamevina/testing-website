@@ -1,4 +1,4 @@
-import { HeroSection, NotarisSection, PPATSection, ServiceSection } from '../components/SectionUi'
+import { HeroSection, NotarisSection, OfficeGallery, PPATSection, ServiceSection } from '../components/SectionUi'
 
 export default function Home() {
     return (
@@ -7,6 +7,7 @@ export default function Home() {
             <NotarisSection />
             <PPATSection />
             <ServiceSection />
+            <OfficeGallery />
         </div>
     )
 }

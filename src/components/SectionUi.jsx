@@ -1,4 +1,33 @@
 import { Link } from "react-router-dom"
+import { 
+    sectionDataNotaris as sectionData, 
+    sectionDataPPAT, 
+    servicesData, 
+    aboutData, 
+    educationData, 
+    organizationData,
+    sectionDataVision,
+} 
+from "../data";
+import { 
+    SectionHeader, 
+    LegalSection, 
+    AuthoritySection, 
+    ServiceCard, 
+    ProfileImage,
+    ProfileDescription,
+    SkillsSection,
+    ExperienceSection,
+    EducationCard,
+    OrganizationCard,
+    TrainingCard,
+    BankCooperation,
+    VisionCard,
+    MissionCard,
+    ModalWhatssapp,
+} 
+from "./Template";
+import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
     return (
@@ -7,7 +36,9 @@ export const HeroSection = () => {
                 <div className="md:flex items-center">
                     <div className="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 leading-tight">
-                            Notaris & PPAT <br /> <span className="text-blue-600 block md:inline">Jaenudin Umar, S.H., M.Kn.</span>
+                            Notaris & PPAT <br /> <span className="text-blue-600 block md:inline">
+                                Dr. Janudin Umar, SE, SH. M.Kn
+                            </span>
                         </h1>
                         <h2 className="text-lg md:text-xl text-gray-600 mb-4 font-medium">
                             Spesialis Akta & Pengurusan Dokumen Resmi di Cirebon
@@ -26,7 +57,7 @@ export const HeroSection = () => {
                                 to={"/about"}
                                 className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-5 py-2 rounded-lg transition-all text-sm md:text-base"
                             >
-                                Portfolio
+                                Tentang Saya
                             </Link>
                         </div>
                     </div>
@@ -60,909 +91,333 @@ export const NotarisSection = () => {
     return (
         <section id="notaris" className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Apa Itu Notaris?</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Notaris adalah pejabat umum yang berwenang untuk membuat akta
-                        otentik dan memiliki kewenangan lainnya sebagaimana dimaksud dalam Undang-Undang tentang Jabatan
-                        Notaris.</p>
-                </div>
+                <SectionHeader
+                    title={sectionData.title}
+                    description={sectionData.description}
+                />
 
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                    <div className="legal-section" data-aos="fade-right">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <div className="fas fa-scale-balanced text-blue-600 mr-3"></div>
-                            Wewenang Notaris
-                        </h3>
-                        <ul className="space-y-3 text-gray-600">
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Membuat akta otentik mengenai semua perbuatan, perjanjian, dan penetapan yang
-                                    diharuskan oleh peraturan perundang-undangan</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Mengesahkan tanda tangan dan menetapkan kepastian tanggal surat di bawah tangan dengan
-                                    mendaftar dalam buku khusus</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Menyimpan akta sebagai bagian dari minuta akta</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Memberikan salinan dan kutipan akta sesuai dengan peraturan perundang-undangan</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="legal-section" data-aos="fade-left">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <div className="fas fa-tasks text-blue-600 mr-3"></div>
-                            Tugas dan Fungsi Notaris
-                        </h3>
-                        <ul className="space-y-3 text-gray-600">
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Melakukan pengesahan dan legalisasi dokumen</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Memberikan nasihat hukum terkait pembuatan akta</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Menjaga kerahasiaan isi akta dan dokumen klien</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Memastikan kepastian hukum bagi para pihak yang berkepentingan</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Membuat akta yang memenuhi syarat formil dan materil</span>
-                            </li>
-                        </ul>
-                    </div>
+                    {sectionData.sections.map((section, index) => (
+                        <LegalSection
+                            key={section.title}
+                            title={section.title}
+                            icon={section.icon}
+                            items={section.items}
+                            iconColor={section.iconColor}
+                            animation={index === 0 ? "fade-right" : "fade-left"}
+                        />
+                    ))}
                 </div>
 
-                <div className="legal-section" data-aos="fade-up">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                        <div className="fas fa-gavel text-blue-600 mr-3"></div>
-                        Kewenangan Notaris
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 className="font-medium text-gray-800 mb-2">Kewenangan Umum:</h4>
-                            <ul className="space-y-2 text-gray-600">
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta autentik (akta notaris) yang berkaitan dengan perbuatan hukum
-                                        tertentu</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta yang berkaitan dengan tanah (bersama PPAT)</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta yang berkaitan dengan wasiat</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-gray-800 mb-2">Kewenangan Khusus:</h4>
-                            <ul className="space-y-2 text-gray-600">
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta pendirian perseroan terbatas (PT)</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta perubahan anggaran dasar perusahaan</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Membuat akta pengambilalihan saham dan merger</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <AuthoritySection
+                    title={sectionData.authority.title}
+                    icon={sectionData.authority.icon}
+                    categories={sectionData.authority.categories}
+                />
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const PPATSection = () => {
     return (
         <section id="ppat" className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Apa Itu PPAT?</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">PPAT (Pejabat Pembuat Akta Tanah) adalah pejabat umum yang
-                        diberi kewenangan untuk membuat akta-akta autentik mengenai perbuatan hukum tertentu mengenai hak
-                        atas tanah atau Hak Milik Atas Satuan Rumah Susun.</p>
-                </div>
+                <SectionHeader
+                    title={sectionDataPPAT.title}
+                    description={sectionDataPPAT.description}
+                />
 
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                    <div className="legal-section" data-aos="fade-right">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <div className="fas fa-landmark text-blue-600 mr-3"></div>
-                            Pejabat Pembuat Akta Tanah (PPAT)
-                        </h3>
-                        <p className="text-gray-600 mb-4">PPAT adalah pejabat umum yang memiliki kewenangan khusus dalam
-                            pembuatan akta-akta terkait peralihan hak atas tanah dan pendaftarannya.</p>
-                        <ul className="space-y-3 text-gray-600">
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Diangkat dan diberhentikan oleh Badan Pertanahan Nasional (BPN)</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Bekerja di wilayah tertentu yang telah ditetapkan</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Bertanggung jawab kepada Kepala Kantor Pertanahan setempat</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-green-500 mt-1 mr-2"></div>
-                                <span>Dapat merangkap sebagai Notaris jika memenuhi syarat</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="legal-section" data-aos="fade-left">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                            <div className="fas fa-list-check text-blue-600 mr-3"></div>
-                            Tugas Pokok PPAT
-                        </h3>
-                        <ul className="space-y-3 text-gray-600">
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Membuat akta-akta sebagai bukti telah dilakukannya perbuatan hukum tertentu mengenai
-                                    hak atas tanah atau Hak Milik Atas Satuan Rumah Susun</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Mendaftarkan akta yang dibuatnya ke Kantor Pertanahan setempat untuk didaftar dalam
-                                    buku tanah dan diterbitkan sertifikatnya</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Memberikan pelayanan konsultasi hukum terkait peralihan hak atas tanah</span>
-                            </li>
-                            <li className="flex items-start">
-                                <div className="fas fa-check-circle text-blue-500 mt-1 mr-2"></div>
-                                <span>Menjaga kerahasiaan dokumen dan data para pihak</span>
-                            </li>
-                        </ul>
-                    </div>
+                    {sectionDataPPAT.sections.map((section, index) => (
+                        <LegalSection
+                            key={section.title}
+                            title={section.title}
+                            icon={section.icon}
+                            description={section.description}
+                            items={section.items}
+                            iconColor={section.iconColor}
+                            animation={index === 0 ? "fade-right" : "fade-left"}
+                        />
+                    ))}
                 </div>
 
-                <div className="legal-section" data-aos="fade-up">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                        <div className="fas fa-user-tie text-blue-600 mr-3"></div>
-                        Kewenangan PPAT
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 className="font-medium text-gray-800 mb-2">Dalam Pembuatan Akta:</h4>
-                            <ul className="space-y-2 text-gray-600">
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Akta Jual Beli tanah dan bangunan</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Akta Hibah tanah dan bangunan</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Akta Pembagian Hak Bersama (APHBS)</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></div>
-                                    <span>Akta Pemberian Hak Tanggungan</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-gray-800 mb-2">Dalam Pendaftaran:</h4>
-                            <ul className="space-y-2 text-gray-600">
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Mendaftarkan peralihan hak ke Kantor Pertanahan</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Melaporkan pembuatan akta ke Kantor Pertanahan</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Memverifikasi kelengkapan dokumen pendukung</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <div className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></div>
-                                    <span>Memberikan informasi proses pendaftaran ke BPN</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <AuthoritySection
+                    title={sectionDataPPAT.authority.title}
+                    icon={sectionDataPPAT.authority.icon}
+                    categories={sectionDataPPAT.authority.categories}
+                />
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const ServiceSection = () => {
     return (
         <section id="services" className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Layanan Profesional</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Berbagai layanan notaris dan PPAT yang saya sediakan untuk
-                        memenuhi kebutuhan hukum Anda.</p>
-                </div>
+                <SectionHeader
+                    title={servicesData.title}
+                    description={servicesData.description}
+                />
+
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <div className="fas fa-file-contract text-blue-600 text-2xl"></div>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">Layanan Notaris</h3>
-                        <p className="text-gray-600 mb-4">Pembuatan berbagai jenis akta otentik sesuai kebutuhan hukum Anda
-                            dengan proses yang jelas dan transparan.</p>
-                        <ul className="space-y-2 text-gray-600">
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Akta Pendirian Perusahaan</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Akta Perubahan Anggaran Dasar</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Akta Pernyataan Waris</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Akta Kuasa</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Legalisasi Dokumen</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <div className="fas fa-landmark text-green-600 text-2xl"></div>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">Layanan PPAT</h3>
-                        <p className="text-gray-600 mb-4">Pelayanan pembuatan akta terkait peralihan hak atas tanah dan bangunan
-                            serta pendaftarannya ke BPN.</p>
-                        <ul className="space-y-2 text-gray-600">
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-blue-500 mr-2"></div>
-                                <span>Akta Jual Beli Tanah/Bangunan</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-blue-500 mr-2"></div>
-                                <span>Akta Hibah Tanah/Bangunan</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-blue-500 mr-2"></div>
-                                <span>Akta Pembagian Hak Bersama</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-blue-500 mr-2"></div>
-                                <span>Akta Pemberian Hak Tanggungan</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-blue-500 mr-2"></div>
-                                <span>Pendaftaran ke Kantor Pertanahan</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <div className="fas fa-balance-scale text-blue-600 text-2xl"></div>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">Konsultasi Hukum</h3>
-                        <p className="text-gray-600 mb-4">Layanan konsultasi hukum untuk membantu Anda memahami aspek legal dari
-                            berbagai transaksi dan perjanjian.</p>
-                        <ul className="space-y-2 text-gray-600">
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Review Kontrak dan Perjanjian</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Pendirian dan Perubahan Perusahaan</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Sengketa Properti dan Tanah</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Hukum Waris dan Keluarga</span>
-                            </li>
-                            <li className="flex items-center">
-                                <div className="fas fa-check-circle text-green-500 mr-2"></div>
-                                <span>Hukum Perbankan dan Jaminan</span>
-                            </li>
-                        </ul>
-                    </div>
+                    {servicesData.services.map((service) => (
+                        <ServiceCard
+                            key={service.title}
+                            title={service.title}
+                            icon={service.icon}
+                            color={service.color}
+                            description={service.description}
+                            items={service.items}
+                            animationDelay={service.animationDelay}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const AboutSection = () => {
     return (
         <section className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Profil Lengkap</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Profil profesional dan pengalaman kerja sebagai Notaris dan
-                        PPAT.</p>
-                </div>
+                <SectionHeader
+                    title={aboutData.header.title}
+                    description={aboutData.header.description}
+                />
+
                 <div className="md:flex items-center">
-                    <div className="md:w-1/3 mb-10 md:mb-0" data-aos="fade-right">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-                            alt="Dr. H. Ahmad Fauzi bekerja" className="rounded-lg shadow-md w-full max-w-md h-auto" />
-                    </div>
+                    <ProfileImage
+                        imageUrl={aboutData.profile.imageUrl}
+                        altText={aboutData.profile.altText}
+                    />
+
                     <div className="md:w-2/3 md:pl-12" data-aos="fade-left">
-                        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Tentang Saya</h3>
-                        <p className="text-gray-600 mb-6">Saya adalah seorang Notaris dan PPAT yang telah berpengalaman lebih
-                            dari 15 tahun dalam memberikan pelayanan hukum kepada masyarakat. Dengan latar belakang
-                            pendidikan hukum yang kuat dan berbagai sertifikasi profesional, saya berkomitmen untuk
-                            memberikan pelayanan terbaik dengan integritas tinggi.</p>
+                        <ProfileDescription
+                            title={aboutData.profile.title}
+                            description={aboutData.profile.description}
+                        />
 
-                        <div className="mb-8">
-                            <h4 className="text-lg font-semibold text-gray-800 mb-4">Keahlian Profesional</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="flex items-start">
-                                    <div className="bg-blue-100 p-2 rounded-full mr-3 mt-1">
-                                        <i className="fas fa-file-contract text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-medium text-gray-800">Pembuatan Akta Otentik</h5>
-                                        <p className="text-gray-600 text-sm">Akta jual beli, hibah, perjanjian, pendirian
-                                            perusahaan, dan lainnya</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="bg-green-100 p-2 rounded-full mr-3 mt-1">
-                                        <i className="fas fa-landmark text-green-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-medium text-gray-800">Pelayanan PPAT</h5>
-                                        <p className="text-gray-600 text-sm">Pendaftaran tanah, balik nama, pembebanan hak
-                                            tanggungan</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="bg-purple-100 p-2 rounded-full mr-3 mt-1">
-                                        <i className="fas fa-handshake text-purple-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-medium text-gray-800">Konsultasi Hukum</h5>
-                                        <p className="text-gray-600 text-sm">Konsultasi masalah hukum perdata dan bisnis</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="bg-yellow-100 p-2 rounded-full mr-3 mt-1">
-                                        <i className="fas fa-scale-balanced text-yellow-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-medium text-gray-800">Legal Drafting</h5>
-                                        <p className="text-gray-600 text-sm">Penyusunan kontrak dan perjanjian hukum</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <SkillsSection skills={aboutData.skills} />
 
-                        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-lg font-semibold text-gray-800 mb-4">Pengalaman Kerja</h4>
-                            <div className="space-y-4">
-                                <div>
-                                    <h5 className="font-medium text-gray-800">Notaris</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        Notaris Kabupaten Cirebon (2008 – sekarang)
-                                    </p>
-                                </div>
-                                <div>
-                                    <h5 className="font-medium text-gray-800">PPAT</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        PPAT Kabupaten Cirebon (2009 – sekarang)
-                                    </p>
-                                </div>
-                                <div>
-                                    <h5 className="font-medium text-gray-800">Notaris</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        Notaris Pembuat Akta Koperasi (2011 – sekarang)
-                                    </p>
-                                </div>
-                                <div>
-                                    <h5 className="font-medium text-gray-800">Dosen Ekonomi</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        Dosen Fakultas Ekonomi UGJ (2011 – sekarang)
-                                    </p>
-                                </div>
-                                <div>
-                                    <h5 className="font-medium text-gray-800">Dosen Hukum</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        Dosen Fakultas Hukum UGJ (2019 – sekarang)
-                                    </p>
-                                </div>
-                                <div>
-                                    <h5 className="font-medium text-gray-800">Anggota</h5>
-                                    <p className="text-gray-600 text-sm">
-                                        Anggota Badan Penyelesaian Sengketa Konsumen (BPSK)
-                                        Kota Cirebon (Periode 2010 – 2015 dan Periode 2015 – 2020)
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <ExperienceSection
+                            title={aboutData.experience.title}
+                            items={aboutData.experience.items}
+                        />
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const EducationSection = () => {
     return (
         <section className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Riwayat Pendidikan</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Pendidikan formal dan pelatihan profesional yang telah
-                        ditempuh.</p>
-                </div>
+                <SectionHeader
+                    title={educationData.header.title}
+                    description={educationData.header.description}
+                />
 
                 <div className="relative pl-12 timeline">
                     <div className="mb-12 relative timeline-item" data-aos="fade-up">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-6">Pendidikan Formal</h3>
+                        <h3 className="text-xl font-semibold text-gray-800 mb-6">{educationData.formalEducation.title}</h3>
 
-                        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 mb-6">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-bold text-gray-800">Doktor (Dr.) Hukum</h4>
-                                    <p className="text-gray-600">Universitas Indonesia, 2015</p>
-                                    <p className="text-gray-600 mt-2">Disertasi: "Peran Notaris dalam Pembangunan Hukum
-                                        Nasional"</p>
-                                </div>
-                                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Gelar Doktor</span>
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 mb-6">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-bold text-gray-800">Magister Kenotariatan (M.Kn.)</h4>
-                                    <p className="text-gray-600">Universitas Indonesia, 2007</p>
-                                    <p className="text-gray-600 mt-2">Tesis: "Aspek Hukum Pendirian PT dalam Praktek
-                                        Kenotariatan"</p>
-                                </div>
-                                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Spesialisasi</span>
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-bold text-gray-800">Sarjana Hukum (S.H.)</h4>
-                                    <p className="text-gray-600">Universitas Indonesia, 2001</p>
-                                    <p className="text-gray-600 mt-2">Skripsi: "Perlindungan Hukum bagi Konsumen dalam Transaksi
-                                        Properti"</p>
-                                </div>
-                                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Gelar
-                                    Sarjana</span>
-                            </div>
-                        </div>
+                        {educationData.formalEducation.items.map((item, index) => (
+                            <EducationCard
+                                key={index}
+                                degree={item.degree}
+                                institution={item.institution}
+                                thesis={item.thesis}
+                                badge={item.badge}
+                            />
+                        ))}
                     </div>
 
                     <div className="relative timeline-item" data-aos="fade-up" data-aos-delay="100">
-                        <h3 className="text-xl font-semibold text-gray-800 mb-6">Pendidikan & Pelatihan Profesional</h3>
+                        <h3 className="text-xl font-semibold text-gray-800 mb-6">{educationData.professionalTraining.title}</h3>
 
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-red-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-shield-alt text-red-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Pendidikan Lemhanas</h4>
-                                        <p className="text-gray-600 text-sm">Lembaga Pertahanan Nasional</p>
-                                        <p className="text-gray-500 text-sm mt-1">2018</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-green-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-coins text-green-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Pelatihan Akad Perbankan Syariah</h4>
-                                        <p className="text-gray-600 text-sm">Perbankan Islam</p>
-                                        <p className="text-gray-500 text-sm mt-1">2007</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-laptop-code text-blue-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Pelatihan OSS</h4>
-                                        <p className="text-gray-600 text-sm">Online Single Submission</p>
-                                        <p className="text-gray-500 text-sm mt-1">2019</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-yellow-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-handshake text-yellow-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Pelatihan Notaris Pembuat Akta Koperasi (NPAK)</h4>
-                                        <p className="text-gray-600 text-sm">Akta Koperasi</p>
-                                        <p className="text-gray-500 text-sm mt-1">2009</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-emerald-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-map-marked-alt text-emerald-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Peningkatan Kualitas Pejabat Pembuat Akta Tanah</h4>
-                                        <p className="text-gray-600 text-sm">Sertifikasi Tanah</p>
-                                        <p className="text-gray-500 text-sm mt-1">2021</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-purple-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-fingerprint text-purple-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Pelatihan Grafonomi dan Verifikasi Dokumen</h4>
-                                        <p className="text-gray-600 text-sm">Laboratorium Forensik Polri</p>
-                                        <p className="text-gray-500 text-sm mt-1">2025</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-indigo-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-gavel text-indigo-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Certified Corporate Legal Expert (CCLE)</h4>
-                                        <p className="text-gray-600 text-sm">Spesialis Hukum Perusahaan</p>
-                                        <p className="text-gray-500 text-sm mt-1">2025</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-all">
-                                <div className="flex items-start mb-3">
-                                    <div className="bg-amber-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i className="fas fa-file-signature text-amber-600 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Certified Contract Drafting Specialist (CCDS)</h4>
-                                        <p className="text-gray-600 text-sm">Spesialis Penyusunan Kontrak</p>
-                                        <p className="text-gray-500 text-sm mt-1">2025</p>
-                                    </div>
-                                </div>
-                            </div>
+                            {educationData.professionalTraining.items.map((item, index) => (
+                                <TrainingCard
+                                    key={index}
+                                    title={item.title}
+                                    description={item.description}
+                                    year={item.year}
+                                    icon={item.icon}
+                                    color={item.color}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const OrganizationSection = () => {
     return (
         <section className="py-16 bg-white">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Riwayat Organisasi</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Aktivitas organisasi dan keanggotaan dalam berbagai asosiasi
-                        profesi.</p>
-                </div>
+                <SectionHeader
+                    title={organizationData.header.title}
+                    description={organizationData.header.description}
+                />
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-landmark text-blue-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">Ikatan Notaris Indonesia</h3>
-                        <p className="text-gray-600 mb-4">Ketua Ikatan Notaris Indonesia (INI) Pengurus Daerah Kabupaten Cirebon</p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2019 - 2022</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                                Ketua
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-landmark text-blue-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">Ikatan Notaris Indonesia</h3>
-                        <p className="text-gray-600 mb-4">
-                            Ketua Ikatan Notaris Indonesia (INI) Pengurus Daerah Kabupaten Cirebon
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2022 - 2022</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                                Ketua
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-file-contract text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                            Ikatan Pejabat Pembuatan Akta Tanah (IPPAT)
-                        </h3>
-                        <p className="text-gray-600 mb-4">
-                            Ketua Ikatan Pejabat Pembuat Akta Tanah (IPPAT) Pengurus Daerah Kabupaten Cirebon
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2016 - 2019</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ketua</span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-file-contract text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                            Ikatan Pejabat Pembuatan Akta Tanah (IPPAT)
-                        </h3>
-                        <p className="text-gray-600 mb-4">
-                            Ketua Ikatan Pejabat Pembuat Akta Tanah (IPPAT) Pengurus Daerah Kabupaten Cirebon
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2019 - 2022</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Ketua</span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-chart-line text-purple-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                            Ikatan Sarjana Ekonomi Indonesia
-                        </h3>
-                        <p className="text-gray-600 mb-4">
-                            Pengurus Ikatan Sarjana Ekonomi Indonesia Cabang Cirebon
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2010 - Sekarang</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">
-                                Anggota
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
-                        data-aos="fade-up" data-aos-delay="300">
-                        <div className="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                            <i className="fas fa-mosque text-indigo-600 text-2xl"></i>
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                            Notaris Muslim Indonesia
-                        </h3>
-                        <p className="text-gray-600 mb-4">
-                            Pengurus Notaris Muslim Indonesia Korwil Jawa Barat
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500">
-                            <i className="fas fa-calendar-alt mr-2"></i>
-                            <span>2023 - 2026</span>
-                        </div>
-                        <div className="mt-3">
-                            <span className="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                                Anggota
-                            </span>
-                        </div>
-                    </div>
+                    {organizationData.organizations.map((org, index) => (
+                        <OrganizationCard
+                            key={index}
+                            name={org.name}
+                            icon={org.icon}
+                            color={org.color}
+                            description={org.description}
+                            period={org.period}
+                            role={org.role}
+                            animationDelay={(index % 3 + 1) * 100}
+                        />
+                    ))}
                 </div>
 
-                <div className="mt-8" data-aos="fade-up">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">Kerjasama Perbankan</h3>
-
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 max-w-5xl mx-auto">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754928325/bank-tabungan-negara-btn-logo-ED226D0731-seeklogo.com_mgyfdh.png"
-                                    alt="Bank BTN" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754928421/Logo_Bank_BTN_Syariah_yleypi.jpg"
-                                    alt="Bank BTN Syariah" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754928659/OIP_jtrgqh.jpg"
-                                    alt="BNI" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754928835/OIP_i7upgm.jpg"
-                                    alt="Bank BJB" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754928961/OIP_vxtiie.jpg"
-                                    alt="Bank BJB Syariah" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929035/OIP_sndsql.jpg"
-                                    alt="Bank Mandiri" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929101/OIP_wmfs92.jpg"
-                                    alt="Bank Syariah Indonesia" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929173/OIP_eeshst.jpg"
-                                    alt="Maybank" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929218/OIP_q56dlr.jpg"
-                                    alt="Bank BRI" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929281/OIP_okynpt.jpg"
-                                    alt="Bank BCA" className="h-full max-h-16 object-contain" />
-                            </div>
-
-                            <div className="flex items-center justify-center p-2 hover:bg-gray-50 rounded-md transition-all h-20">
-                                <img src="https://res.cloudinary.com/du4wegspv/image/upload/v1754929382/OIP_pek7q8.jpg"
-                                    alt="CIMB Bank" className="h-full max-h-16 object-contain" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <BankCooperation
+                    title={organizationData.bankCooperation.title}
+                    banks={organizationData.bankCooperation.banks}
+                />
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const VisionSection = () => {
     return (
         <section id="vision" className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Visi & Misi</h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto">Prinsip dan komitmen dalam memberikan pelayanan notaris dan
-                        PPAT.</p>
-                </div>
+                <SectionHeader
+                    title={sectionDataVision.title}
+                    description={sectionDataVision.description}
+                />
 
                 <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200" data-aos="fade-right">
-                        <div className="flex items-center mb-6">
-                            <div className="bg-blue-100 p-3 rounded-full mr-4">
-                                <i className="fas fa-eye text-blue-600 text-2xl"></i>
-                            </div>
-                            <h3 className="text-2xl font-semibold text-gray-800">Visi</h3>
-                        </div>
-                        <p className="text-gray-600 mb-6">Menjadi kantor notaris dan PPAT terdepan yang memberikan pelayanan
-                            hukum profesional dengan integritas tinggi, berorientasi pada kepuasan klien, dan berkontribusi
-                            pada pembangunan hukum nasional.</p>
-                        <div className="bg-blue-50 p-4 rounded-lg">
-                            <p className="text-blue-800 italic">"Pelayanan hukum yang profesional adalah hak setiap warga
-                                negara, dan kami hadir untuk mewujudkannya."</p>
-                        </div>
-                    </div>
+                    <VisionCard
+                        title={sectionDataVision.vision.title}
+                        icon={sectionDataVision.vision.icon}
+                        content={sectionDataVision.vision.content}
+                        quote={sectionDataVision.vision.quote}
+                        color={sectionDataVision.vision.color}
+                        animation="fade-right"
+                    />
 
-                    <div className="bg-white p-8 rounded-xl shadow-md border border-gray-200" data-aos="fade-left">
-                        <div className="flex items-center mb-6">
-                            <div className="bg-green-100 p-3 rounded-full mr-4">
-                                <i className="fas fa-bullseye text-green-600 text-2xl"></i>
-                            </div>
-                            <h3 className="text-2xl font-semibold text-gray-800">Misi</h3>
-                        </div>
-                        <ul className="space-y-4 text-gray-600">
-                            <li className="flex items-start">
-                                <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Memberikan pelayanan notaris dan PPAT yang cepat, akurat, dan sesuai dengan ketentuan
-                                    hukum yang berlaku.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Menjunjung tinggi etika profesi dan integritas dalam setiap pelayanan.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan dan
-                                    profesionalisme.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Berkontribusi aktif dalam pengembangan ilmu kenotariatan melalui penelitian dan
-                                    pendidikan.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <i className="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Meningkatkan kesadaran hukum masyarakat melalui program edukasi dan
-                                    sosialisasi.</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <MissionCard
+                        title={sectionDataVision.mission.title}
+                        icon={sectionDataVision.mission.icon}
+                        items={sectionDataVision.mission.items}
+                        color={sectionDataVision.mission.color}
+                        animation="fade-left"
+                    />
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export const OfficeSection = () => {
+    const showModal = () => {
+        const modal = document.getElementById('schedule-modal');
+        modal.classList.remove('hidden');
+    };
+
+    const hideModal = () => {
+        const modal = document.getElementById('schedule-modal');
+        modal.classList.add('hidden');
+    };
+
+    const handlePurposeChange = (e) => {
+        const otherContainer = document.getElementById('other-purpose-container');
+        if (e.target.value === 'Lainnya') {
+            otherContainer.classList.remove('hidden');
+        } else {
+            otherContainer.classList.add('hidden');
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('visit-name').value;
+        const phone = document.getElementById('visit-phone').value;
+        const date = document.getElementById('visit-date').value;
+        const time = document.getElementById('visit-time').value;
+        const purpose = document.getElementById('visit-purpose').value;
+        const otherPurpose = document.getElementById('other-purpose').value;
+
+        const formattedDate = new Date(date).toLocaleDateString('id-ID', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        let message = `Halo, saya ${name} ingin menjadwalkan kunjungan dengan detail sebagai berikut:\n\n`;
+        message += `📅 Tanggal: ${formattedDate}\n`;
+        message += `⏰ Waktu: ${time}\n`;
+        message += `🎯 Tujuan: ${purpose}`;
+
+        if (purpose === 'Lainnya' && otherPurpose) {
+            message += ` - ${otherPurpose}`;
+        }
+
+        message += `\n\nSaya dapat dihubungi di nomor ini: ${phone}. Terima kasih.`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = '6282313931717';
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        } else {
+            window.open(`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`, '_blank');
+        }
+
+        hideModal();
+    };
+
+    useEffect(() => {
+        const scheduleButton = document.querySelector('a[href="#contact"]');
+        if (scheduleButton) {
+            scheduleButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal();
+            });
+        }
+
+        const cancelButton = document.getElementById('cancel-schedule');
+        if (cancelButton) {
+            cancelButton.addEventListener('click', hideModal);
+        }
+
+        const confirmButton = document.getElementById('confirm-schedule');
+        if (confirmButton) {
+            confirmButton.addEventListener('click', handleSubmit);
+        }
+
+        const purposeSelect = document.getElementById('visit-purpose');
+        if (purposeSelect) {
+            purposeSelect.addEventListener('change', handlePurposeChange);
+        }
+
+        return () => {
+            if (scheduleButton) scheduleButton.removeEventListener('click', showModal);
+            if (cancelButton) cancelButton.removeEventListener('click', hideModal);
+            if (confirmButton) confirmButton.removeEventListener('click', handleSubmit);
+            if (purposeSelect) purposeSelect.removeEventListener('change', handlePurposeChange);
+        };
+    }, []);
+
     return (
         <section className="py-12 bg-blue-50 rounded-lg mb-12" data-aos="fade-up">
             <div className="max-w-3xl mx-auto px-4">
@@ -1007,17 +462,21 @@ export const OfficeSection = () => {
                             <p className="text-gray-700 mb-4">
                                 Untuk memastikan pelayanan optimal, disarankan membuat janji temu terlebih dahulu.
                             </p>
-                            <button className="px-4 py-2 bg-primary-dark text-white rounded-md hover:bg-primary-light hover:text-primary-dark transition">
-                                Buat Janji Temu
+                            <button
+                                onClick={showModal}
+                                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-all cursor-pointer"
+                            >
+                                <i className="fas fa-calendar-alt mr-2"></i> Buat Janji Temu
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <ModalWhatssapp />
         </section>
     )
 }
-
 export const ContactSection = () => {
     return (
         <section id="contact" className="py-16 bg-white">
@@ -1092,3 +551,208 @@ export const ContactSection = () => {
         </section>
     )
 }
+
+export const OfficeGallery = () => {
+    return (
+        <section className="py-16 bg-gray-50">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16" data-aos="fade-up">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4">Galeri Kantor</h2>
+                    <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                    <p className="text-gray-600 max-w-2xl mx-auto">Kantor notaris yang nyaman dan profesional untuk melayani
+                        kebutuhan hukum Anda.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all card-hover"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Ruangan Resepsi Kantor Notaris"
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                        <div className="p-4 bg-white">
+                            <h3 className="font-semibold text-gray-800">Ruangan Resepsi</h3>
+                            <p className="text-sm text-gray-600">Area penerimaan tamu yang nyaman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export const WhattsappButton = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [purpose, setPurpose] = useState('');
+    const [showOtherPurpose, setShowOtherPurpose] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const hideModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handlePurposeChange = (e) => {
+        const selectedPurpose = e.target.value;
+        setPurpose(selectedPurpose);
+        setShowOtherPurpose(selectedPurpose === 'Lainnya');
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const name = formData.get('visit-name');
+        const phone = formData.get('visit-phone');
+        const date = formData.get('visit-date');
+        const time = formData.get('visit-time');
+        const purpose = formData.get('visit-purpose');
+        const otherPurpose = formData.get('other-purpose');
+
+        const formattedDate = new Date(date).toLocaleDateString('id-ID', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        let message = `Halo, saya ${name} ingin menjadwalkan kunjungan dengan detail sebagai berikut:\n\n`;
+        message += `📅 Tanggal: ${formattedDate}\n`;
+        message += `⏰ Waktu: ${time}\n`;
+        message += `🎯 Tujuan: ${purpose}`;
+
+        if (purpose === 'Lainnya' && otherPurpose) {
+            message += ` - ${otherPurpose}`;
+        }
+
+        message += `\n\nSaya dapat dihubungi di nomor ini: ${phone}. Terima kasih.`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = '6282313931717';
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const url = isMobile
+            ? `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+            : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+
+        window.open(url, '_blank');
+        hideModal();
+    };
+
+    return (
+        <>
+            <button
+                onClick={showModal}
+                className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50"
+            >
+                <i className="fab fa-whatsapp text-2xl"></i>
+            </button>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-lg p-6 w-full max-w-md">
+                        <h2 className="text-xl font-bold mb-4">Hubungi Kami via WhatsApp</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2" htmlFor="visit-name">
+                                    Nama Lengkap
+                                </label>
+                                <input
+                                    type="text"
+                                    id="visit-name"
+                                    name="visit-name"
+                                    className="w-full px-3 py-2 border rounded"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2" htmlFor="visit-phone">
+                                    Nomor WhatsApp
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="visit-phone"
+                                    name="visit-phone"
+                                    className="w-full px-3 py-2 border rounded"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2" htmlFor="visit-date">
+                                    Tanggal Kunjungan
+                                </label>
+                                <input
+                                    type="date"
+                                    id="visit-date"
+                                    name="visit-date"
+                                    className="w-full px-3 py-2 border rounded"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2" htmlFor="visit-time">
+                                    Waktu Kunjungan
+                                </label>
+                                <input
+                                    type="time"
+                                    id="visit-time"
+                                    name="visit-time"
+                                    className="w-full px-3 py-2 border rounded"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2" htmlFor="visit-purpose">
+                                    Tujuan Kunjungan
+                                </label>
+                                <select
+                                    id="visit-purpose"
+                                    name="visit-purpose"
+                                    className="w-full px-3 py-2 border rounded"
+                                    onChange={handlePurposeChange}
+                                    value={purpose}
+                                    required
+                                >
+                                    <option value="">Pilih Tujuan</option>
+                                    <option value="Konsultasi">Konsultasi</option>
+                                    <option value="Meeting">Meeting</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            {showOtherPurpose && (
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 mb-2" htmlFor="other-purpose">
+                                        Tujuan Lainnya
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="other-purpose"
+                                        name="other-purpose"
+                                        className="w-full px-3 py-2 border rounded"
+                                    />
+                                </div>
+                            )}
+                            <div className="flex justify-end gap-2">
+                                <button
+                                    type="button"
+                                    onClick={hideModal}
+                                    className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                                >
+                                    Batal
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                                >
+                                    Kirim
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};

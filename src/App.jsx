@@ -8,6 +8,7 @@ import ArticleDetail from './pages/ArticleDetail'
 import EditArticleForm from './components/EditArticleForm'
 import { AuthProvider } from './components/AuthContext'
 import { Contact } from './pages/Contact'
+import { WhattsappButton } from './components/SectionUi'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <WhattsappButton />
         </div>
       </Router>
     </AuthProvider>

@@ -53,15 +53,6 @@ export default function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
                             required
                         />
                     </div>
-                    <div className="flex justify-between mb-4">
-                        <button
-                            type="button"
-                            onClick={onSwitchToRegister}
-                            className="text-blue-600 hover:underline"
-                        >
-                            Buat akun baru
-                        </button>
-                    </div>
                     <div className="flex justify-end gap-2">
                         <button
                             type="button"
