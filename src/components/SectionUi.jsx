@@ -39,7 +39,7 @@ export const HeroSection = () => {
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
                             Notaris & PPAT Cirebon <br />
                             <span className="text-gold-500 block md:inline mt-2">
-                                Dr. Janudin Umar, SE, SH. M.Kn
+                                DR. JAENUDIN UMAR, SE, SH. M.Kn
                             </span>
                         </h1>
                         <h2 className="text-lg md:text-xl text-gray-300 mb-6 font-medium">
