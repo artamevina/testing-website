@@ -376,7 +376,7 @@ export const organizationData = {
             color: "purple",
             description: "Pengurus Ikatan Sarjana Ekonomi Indonesia Cabang Cirebon",
             period: "2010 - Sekarang",
-            role: "Anggota"
+            role: "Pengurus"
         },
         {
             name: "Notaris Muslim Indonesia",
