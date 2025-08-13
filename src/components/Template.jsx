@@ -208,8 +208,9 @@ export const EducationCard = ({ degree, institution, thesis, darkMode = false })
             <div className="flex justify-between items-start">
                 <div>
                     <h4 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>{degree}</h4>
-                    <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{institution}</p>
-                    <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'} mt-2`}>{thesis}</p>
+                    <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                        {institution}
+                    </p>
                 </div>
             </div>
         </div>

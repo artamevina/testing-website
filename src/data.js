@@ -241,15 +241,19 @@ export const educationData = {
         items: [
             {
                 degree: "Sarjana Ekonomi (SE)",
+                institution: "1997",
             },
             {
                 degree: "Magister Kenotariatan (M.Kn.)",
+                institution: "2006",
             },
             {
                 degree: "Sarjana Hukum (SH)",
+                institution: "2003",
             },
             {
                 degree: "Doktor (Ilmu Hukum)",
+                institution: "2021",
             },
         ]
     },
