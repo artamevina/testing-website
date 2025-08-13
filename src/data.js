@@ -224,7 +224,7 @@ export const aboutData = {
                 details: "Dosen Fakultas Hukum UGJ (2019 – sekarang)"
             },
             {
-                role: "Anggota",
+                role: "BPSK",
                 details: "Anggota Badan Penyelesaian Sengketa Konsumen (BPSK) Kota Cirebon (Periode 2010 – 2015 dan Periode 2015 – 2020)"
             }
         ]
@@ -335,7 +335,7 @@ export const organizationData = {
             icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001581/images_ls5amr.png",
             color: "blue",
             description: "Ketua Ikatan Notaris Indonesia (INI) Pengurus Daerah Kabupaten Cirebon",
-            period: "2022 - 2022",
+            period: "2022 - 2026",
             role: "Ketua"
         },
         {
@@ -355,12 +355,20 @@ export const organizationData = {
             role: "Ketua"
         },
         {
-            name: "Pengawas Daerah Notaris Cirebon",
+            name: "Majelis Pengawas Daerah (MPD)",
             icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755001939/01JWZ8RR0VRFGJ6B6WZYKD550J_bejeau.png",
             color: "purple",
             description: "Majelis Pengawas Daerah Notaris Kabupaten Cirebon",
-            period: "2010 - Sekarang",
+            period: "2023 - Sekarang",
             role: "Anggota"
+        },  
+        {
+            name: "Majelis Kehormatan Daerah (MKD)",
+            icon: "https://res.cloudinary.com/du4wegspv/image/upload/v1755055578/pngtree-justice-scales-black-icon-png-image_4965913_dodyfa.png",
+            color: "green",
+            description: "Majelis Kehormatan Daerah Kabupaten Cirebon IPPAT",
+            period: "2024 - Sekarang",
+            role: "Ketua"
         },
         {
             name: "Ikatan Sarjana Ekonomi Indonesia",
