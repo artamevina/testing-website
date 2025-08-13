@@ -4,11 +4,13 @@ import ArticleForm from '../components/ArticleForm'
 import { supabase } from '../services/supabase'
 import { Loading, SectionHeader } from '../components/Template'
 import Header from '../components/Header'
+import { useAuth } from '../components/AuthContext' // Import useAuth
 
 export default function Articles() {
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
     const [showForm, setShowForm] = useState(false)
+    const { user } = useAuth() // Dapatkan status user
 
     useEffect(() => {
         fetchArticles()
@@ -56,28 +58,31 @@ export default function Articles() {
                     <h1 className="text-xl md:text-3xl font-bold text-white" data-aos="fade-up">
                         Artikel Notaris & PPAT Cirebon
                     </h1>
-                    <button
-                        onClick={() => setShowForm(!showForm)}
-                        className="flex items-center justify-center gap-2 p-2 md:px-4 md:py-2 bg-gold-500 text-gray-900 rounded-full md:rounded-lg hover:bg-gold-600 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
-                        data-aos="fade-up"
-                        aria-label={showForm ? 'Batal tambah artikel' : 'Tambah artikel'}
-                    >
-                        {showForm ? (
-                            <>
-                                <span className="hidden md:inline">Tutup</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                                </svg>
-                            </>
-                        ) : (
-                            <>
-                                <span className="hidden md:inline">Tambah Artikel</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
-                                </svg>
-                            </>
-                        )}
-                    </button>
+                    {/* Hanya tampilkan tombol jika user sudah login */}
+                    {user && (
+                        <button
+                            onClick={() => setShowForm(!showForm)}
+                            className="flex items-center justify-center gap-2 p-2 md:px-4 md:py-2 bg-gold-500 text-gray-900 rounded-full md:rounded-lg hover:bg-gold-600 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+                            data-aos="fade-up"
+                            aria-label={showForm ? 'Batal tambah artikel' : 'Tambah artikel'}
+                        >
+                            {showForm ? (
+                                <>
+                                    <span className="hidden md:inline">Tutup</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </>
+                            ) : (
+                                <>
+                                    <span className="hidden md:inline">Tambah Artikel</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                                    </svg>
+                                </>
+                            )}
+                        </button>
+                    )}
                 </div>
 
                 {showForm && (
