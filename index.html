@@ -43,31 +43,31 @@
   <link rel="canonical" href="https://www.jaenudin-umar.com/" />
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Kantor Notaris & PPAT Jaenudin Umar, SH.",
-      "description": "Notaris dan PPAT resmi di Cirebon. Melayani pembuatan akta notaris, sertifikat tanah, dan legalisasi dokumen.",
-      "image": "https://www.jaenudin-umar.com/android-chrome-512x512.png",
-      "logo": "https://www.jaenudin-umar.com/android-chrome-512x512.png",
-      "@id": "https://www.jaenudin-umar.com/#legal-service",
-      "url": "https://www.jaenudin-umar.com/",
-      "telephone": "+62-823-7500-0900",
-      "email": "info@jaenudin-umar.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. Dr. Cipto Mangunkusumo No. 12A",
-        "addressLocality": "Cirebon",
-        "addressRegion": "Jawa Barat",
-        "postalCode": "45124",
-        "addressCountry": "ID"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -6.7320,
-        "longitude": 108.5523
-      },
-      "openingHoursSpecification": {
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Kantor Notaris & PPAT Jaenudin Umar, SH.",
+    "image": "https://www.jaenudin-umar.com/android-chrome-512x512.png",
+    "logo": "https://www.jaenudin-umar.com/android-chrome-512x512.png",
+    "@id": "https://www.jaenudin-umar.com/",
+    "url": "https://www.jaenudin-umar.com/",
+    "telephone": "+62-823-7500-0900",
+    "email": "info@jaenudin-umar.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Dr. Cipto Mangunkusumo No. 12A",
+      "addressLocality": "Cirebon",
+      "addressRegion": "Jawa Barat",
+      "postalCode": "45124",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -6.7320,
+      "longitude": 108.5523
+    },
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
           "Monday",
@@ -78,48 +78,28 @@
         ],
         "opens": "08:00",
         "closes": "16:00"
-      },
-      "priceRange": "IDR",
-      "sameAs": [
-        "https://www.facebook.com/jaenudinumar.notaris",
-        "https://www.instagram.com/jaenudinumar_notaris"
-      ]
-    }
-  </script>
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Notary",
-      "name": "Jaenudin Umar, SH.",
-      "description": "Notaris dan PPAT resmi di Cirebon",
-      "@id": "https://www.jaenudin-umar.com/#notary",
-      "url": "https://www.jaenudin-umar.com/",
-      "telephone": "+62-823-7500-0900",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. Dr. Cipto Mangunkusumo No. 12A",
-        "addressLocality": "Cirebon",
-        "addressRegion": "Jawa Barat",
-        "postalCode": "45124",
-        "addressCountry": "ID"
       }
-    }
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.facebook.com/jaenudinumar.notaris",
+      "https://www.instagram.com/jaenudinumar_notaris"
+    ]
+  }
   </script>
-
+  
+  <!-- Tambahkan navigasi schema -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "https://www.jaenudin-umar.com/"
-        }
-      ]
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": ["Beranda", "Tentang Saya", "Artikel"],
+    "url": [
+      "https://www.jaenudin-umar.com/",
+      "https://www.jaenudin-umar.com/about",
+      "https://www.jaenudin-umar.com/articles"
+    ]
+  }
   </script>
 </head>
 
@@ -153,7 +133,7 @@
       <h2>Kontak Kami</h2>
       <p>
         <strong>Alamat:</strong> Jl. Dr. Cipto Mangunkusumo No. 12A, Cirebon 45124<br>
-        <strong>Telepon:</strong> +62-823-7500-0900<br>
+        <strong>Telepon:</strong> (0231) 1234567<br>
         <strong>Email:</strong> info@jaenudin-umar.com<br>
         <strong>Jam Operasional:</strong> Senin-Jumat, 08.00-16.00 WIB
       </p>
