@@ -9,6 +9,25 @@ export default function Header() {
     const { user, signOut } = useAuth()
     const navigate = useNavigate()
 
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+        setMobileMenuOpen(false)
+    }
+
+    const navigateToSection = (path, sectionId) => {
+        if (window.location.pathname === path) {
+            scrollToSection(sectionId)
+        } else {
+            navigate(path)
+            setTimeout(() => {
+                scrollToSection(sectionId)
+            }, 100)
+        }
+    }
+
     const handleLogout = async () => {
         try {
             await signOut()
@@ -50,6 +69,21 @@ export default function Header() {
                     <div className="hidden md:flex items-center space-x-8">
                         <Link to="/" className="text-gray-300 hover:text-gold-400 transition">Beranda</Link>
                         <Link to="/about" className="text-gray-300 hover:text-gold-400 transition">Tentang Saya</Link>
+
+                        <button
+                            onClick={() => navigateToSection('/', 'notaris')}
+                            className="text-gray-300 hover:text-gold-400 transition"
+                        >
+                            Layanan
+                        </button>
+
+                        <button
+                            onClick={() => navigateToSection('/about', 'contact')}
+                            className="text-gray-300 hover:text-gold-400 transition"
+                        >
+                            Kontak
+                        </button>
+
                         <Link to="/articles" className="text-gray-300 hover:text-gold-400 transition">Artikel</Link>
                         {user ? (
                             <div className="flex items-center space-x-4">
@@ -97,6 +131,21 @@ export default function Header() {
                 >
                     Tentang Saya
                 </Link>
+
+                <button
+                    onClick={() => navigateToSection('/', 'notaris')}
+                    className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
+                >
+                    Layanan
+                </button>
+
+                <button
+                    onClick={() => navigateToSection('/about', 'contact')}
+                    className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
+                >
+                    Kontak
+                </button>
+
                 <Link
                     to="/articles"
                     className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
