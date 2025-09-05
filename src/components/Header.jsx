@@ -71,7 +71,7 @@ export default function Header() {
                         <Link to="/about" className="text-gray-300 hover:text-gold-400 transition">Tentang Saya</Link>
 
                         <button
-                            onClick={() => navigateToSection('/', 'notaris')}
+                            onClick={() => navigateToSection('/services')}
                             className="text-gray-300 hover:text-gold-400 transition"
                         >
                             Layanan
@@ -133,7 +133,7 @@ export default function Header() {
                 </Link>
 
                 <button
-                    onClick={() => navigateToSection('/', 'notaris')}
+                    onClick={() => navigateToSection('/services')}
                     className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                 >
                     Layanan

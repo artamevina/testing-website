@@ -43,10 +43,10 @@ export const HeroSection = () => {
                             </span>
                         </h1>
                         <h2 className="text-lg md:text-xl text-gray-300 mb-6 font-medium">
-                            Spesialis Akta & Pengurusan Dokumen Resmi di Cirebon
+                            Spesialis Akta & Pengurusan Dokumen Resmi di Cirebon Jawa Barat
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg text-sm md:text-base">
-                            Dengan pengalaman lebih dari 17 tahun, kami menyediakan layanan notaris & PPAT profesional yang cepat, aman, dan sesuai peraturan, dengan pendekatan personal untuk setiap klien.
+                            Dengan pengalaman lebih dari 17 tahun, kami menyediakan layanan notaris & PPAT profesional yang cepat, aman, dan sesuai peraturan, dengan pendekatan personal untuk setiap klien. Sebagai Notaris dan PPAT terpercaya di Cirebon Jawa Barat, kami siap membantu kebutuhan hukum Anda.
                         </p>
                         <div className="flex space-x-4">
                             <Link
@@ -67,7 +67,7 @@ export const HeroSection = () => {
                         <div className="relative">
                             <img
                                 src="https://res.cloudinary.com/du4wegspv/image/upload/v1754990795/WhatsApp_Image_2025-08-12_at_4.25.52_PM_xehlet.jpg"
-                                alt="Notaris PPAT Cirebon - Dr. Janudin Umar"
+                                alt="Notaris PPAT Cirebon Jawa Barat - Dr. Jaenudin Umar, SH."
                                 className="rounded-lg shadow-2xl w-full max-w-xs md:max-w-sm h-[400px] border-4 border-gold-500 object-cover"
                             />
                             <div className="absolute -bottom-4 -right-4 bg-gray-900 p-3 rounded-lg shadow-md border border-gold-500">
@@ -227,7 +227,7 @@ export const AboutSection = () => {
                 <div className="md:flex items-center">
                     <ProfileImage
                         imageUrl={aboutData.profile.imageUrl}
-                        altText={`Notaris Cirebon - ${aboutData.profile.altText}`}
+                        altText={`Notaris dan PPAT Cirebon Jawa Barat - ${aboutData.profile.altText}`}
                         darkMode={true}
                     />
 
@@ -245,6 +245,12 @@ export const AboutSection = () => {
                             items={aboutData.experience.items}
                             darkMode={true}
                         />
+
+                        <div className="mt-8 text-gray-300">
+                            <h3 className="text-xl font-semibold text-white mb-4">Notaris dan PPAT Profesional di Cirebon Jawa Barat</h3>
+                            <p>Sebagai Notaris dan PPAT berlisensi di Cirebon Jawa Barat, Dr. Jaenudin Umar, SE, SH. M.Kn telah melayani masyarakat dan bisnis di wilayah Cirebon dan sekitarnya selama lebih dari 17 tahun. Dengan keahlian di bidang hukum dan pertanahan, kami siap membantu berbagai kebutuhan legal Anda.</p>
+                            <p className="mt-2">Kantor Notaris dan PPAT kami melayani pembuatan akta notaris, pengurusan sertifikat tanah, legalisasi dokumen, serta konsultasi hukum untuk perorangan dan perusahaan di Cirebon dan seluruh Jawa Barat.</p>
+                        </div>
                     </div>
                 </div>
             </div>
