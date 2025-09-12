@@ -68,23 +68,23 @@ export default function Header() {
                     </div>
                     <div className="hidden md:flex items-center space-x-8">
                         <Link to="/" className="text-gray-300 hover:text-gold-400 transition">Beranda</Link>
-                        <Link to="/about" className="text-gray-300 hover:text-gold-400 transition">Tentang Saya</Link>
+                        <Link to="/tentang-kami" className="text-gray-300 hover:text-gold-400 transition">Tentang Saya</Link>
 
                         <button
-                            onClick={() => navigateToSection('/services')}
+                            onClick={() => navigateToSection('/layanan')}
                             className="text-gray-300 hover:text-gold-400 transition"
                         >
                             Layanan
                         </button>
 
                         <button
-                            onClick={() => navigateToSection('/about', 'contact')}
+                            onClick={() => navigateToSection('/tentang-kami', 'kontak')}
                             className="text-gray-300 hover:text-gold-400 transition"
                         >
                             Kontak
                         </button>
 
-                        <Link to="/articles" className="text-gray-300 hover:text-gold-400 transition">Artikel</Link>
+                        <Link to="/artikel" className="text-gray-300 hover:text-gold-400 transition">Artikel</Link>
                         {user ? (
                             <div className="flex items-center space-x-4">
                                 <button
@@ -125,7 +125,7 @@ export default function Header() {
                     Beranda
                 </Link>
                 <Link
-                    to="/about"
+                    to="/tentang-kami"
                     className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     onClick={() => setMobileMenuOpen(false)}
                 >
@@ -133,21 +133,21 @@ export default function Header() {
                 </Link>
 
                 <button
-                    onClick={() => navigateToSection('/services')}
+                    onClick={() => navigateToSection('/layanan')}
                     className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                 >
                     Layanan
                 </button>
 
                 <button
-                    onClick={() => navigateToSection('/about', 'contact')}
+                    onClick={() => navigateToSection('/tentang-kami', 'kontak')}
                     className="w-full text-left block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                 >
                     Kontak
                 </button>
 
                 <Link
-                    to="/articles"
+                    to="/artikel"
                     className="block py-3 px-4 text-sm hover:bg-gray-800 text-gray-300"
                     onClick={() => setMobileMenuOpen(false)}
                 >

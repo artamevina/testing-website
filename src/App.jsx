@@ -29,11 +29,11 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/articles" element={<Articles />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/articles/:id" element={<ArticleDetail />} />
-              <Route path="/articles/edit/:id" element={<EditArticleForm />} />
+              <Route path="/tentang-kami" element={<About />} />
+              <Route path="/artikel" element={<Articles />} />
+              <Route path="/layanan" element={<Services />} />
+              <Route path="/artikel/:id" element={<ArticleDetail />} />
+              <Route path="/artikel/edit/:id" element={<EditArticleForm />} />
             </Routes>
           </main>
           <Footer />

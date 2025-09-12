@@ -24,7 +24,7 @@ export default function ArticleCard({ article, darkMode = false }) {
             data-aos="fade-up"
             data-aos-delay="100"
         >
-            <Link to={`/articles/${article.id}`} className="block">
+            <Link to={`/artikel/${article.id}`} className="block">
                 <img
                     src={optimizedImageUrl}
                     alt={`Artikel Notaris Tegal - ${article.judul} - Layanan Notaris dan PPAT di Jawa Tengah`}
@@ -55,7 +55,7 @@ export default function ArticleCard({ article, darkMode = false }) {
                         )}
                     </span>
                 </div>
-                <Link to={`/articles/${article.id}`}>
+                <Link to={`/artikel/${article.id}`}>
                     <h3 className={`text-xl font-semibold ${darkMode ? 'text-white hover:text-gold-400' : 'text-gray-800 hover:text-blue-600'} mb-3 transition-colors line-clamp-2`}>
                         {article.judul}
                     </h3>
@@ -63,7 +63,7 @@ export default function ArticleCard({ article, darkMode = false }) {
                 <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-4 line-clamp-3`}>{article.deskripsi}</p>
                 <div className="flex justify-between items-center">
                     <Link
-                        to={`/articles/${article.id}`}
+                        to={`/artikel/${article.id}`}
                         className={`${darkMode ? 'text-gold-500 hover:text-gold-400' : 'text-blue-600 hover:text-blue-800'} font-medium flex items-center transition-colors group`}
                     >
                         Baca Selengkapnya

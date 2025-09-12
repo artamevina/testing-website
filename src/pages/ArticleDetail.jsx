@@ -50,7 +50,7 @@ export default function ArticleDetail() {
 
                 if (error) throw error
 
-                navigate('/articles', { state: { message: 'Artikel berhasil dihapus' } })
+                navigate('/artikel', { state: { message: 'Artikel berhasil dihapus' } })
             } catch (error) {
                 setError(error.message)
             }
@@ -83,7 +83,7 @@ export default function ArticleDetail() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-8 flex justify-start">
                         <button
-                            onClick={() => navigate("/articles")}
+                            onClick={() => navigate("/artikel")}
                             className="px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-all flex items-center"
                         >
                             <i className="fas fa-arrow-left mr-2"></i> Kembali ke Artikel
@@ -119,7 +119,7 @@ export default function ArticleDetail() {
                             {user && (
                                 <div className="flex flex-wrap gap-2">
                                     <button
-                                        onClick={() => navigate(`/articles/edit/${article.id}`)}
+                                        onClick={() => navigate(`/artikel/edit/${article.id}`)}
                                         className="px-4 py-2 bg-gold-500 text-gray-900 rounded-lg hover:bg-gold-600 transition-all flex items-center font-medium"
                                     >
                                         <i className="fas fa-edit mr-2"></i> Edit

@@ -178,7 +178,7 @@ export default function EditArticleForm() {
                 throw new Error('Gagal memperbarui artikel')
             }
 
-            navigate(`/articles/${id}`, { state: { message: 'Artikel berhasil diperbarui' } })
+            navigate(`/artikel/${id}`, { state: { message: 'Artikel berhasil diperbarui' } })
 
         } catch (error) {
             console.error('Error updating article:', error)

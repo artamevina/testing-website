@@ -383,7 +383,7 @@ export const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="py-16 bg-gray-900">
+        <section id="kontak" className="py-16 bg-gray-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16" data-aos="fade-up">
                     <h2 className="text-3xl font-bold text-white mb-4">Hubungi Kami</h2>
