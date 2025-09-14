@@ -50,13 +50,13 @@ export const HeroSection = () => {
                         </p>
                         <div className="flex space-x-4">
                             <Link
-                                to={"/about"}
+                                to={"/tentang-kami"}
                                 className="bg-gold-600 hover:bg-gold-500 text-gray-900 font-semibold px-6 py-3 rounded-lg transition-all text-sm md:text-base"
                             >
                                 Tentang Saya
                             </Link>
                             <Link
-                                to={"/services"}
+                                to={"/layanan"}
                                 className="border border-gold-500 text-gold-500 hover:bg-gray-900 px-6 py-3 rounded-lg transition-all text-sm md:text-base"
                             >
                                 Layanan Kami
